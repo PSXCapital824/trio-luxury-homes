@@ -182,8 +182,7 @@ window.addEventListener('DOMContentLoaded', event => {
         observer.observe(el);
     });
 
-});
-// =====================================
+    // =====================================
     // SOCIAL LINKS SCROLL COLOR CHANGE
     // =====================================
     window.addEventListener('scroll', function() {
@@ -193,3 +192,5 @@ window.addEventListener('DOMContentLoaded', event => {
             document.body.classList.remove('scrolled');
         }
     });
+
+});
