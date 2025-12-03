@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trio Luxury Homes – Agent Portal</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+        /* Additional Agent Portal Styles */
+        #passwordScreen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--charcoal) 0%, #2A2A2A 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+        }
+
+        .password-container {
+            background: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .password-container h1 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .password-container p {
+            color: var(--slate);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-gray);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: var(--bronze);
+        }
+
+        .password-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bronze);
+            color: var(--white);
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .password-btn:hover {
+            background: #a07d52;
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        #mainPortal {
+            display: none;
+        }
+
+        .portal-hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+                        url('images/portfolio/home1.jpg') center/cover;
+        }
+
+        .portal-hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 1;
+            padding: 0 2rem;
+        }
+
+        .portal-hero-content h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .portal-hero-content p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .agent-badge {
+            display: inline-block;
+            background: var(--bronze);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .main-buttons-section {
+            padding: 100px 4rem;
+            background: var(--white);
+        }
+
+        .main-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .main-btn {
+            flex: 1;
+            max-width: 450px;
+            min-width: 280px;
+            padding: 3rem 2rem;
+            background: var(--warm-gray);
+            border: 2px solid var(--light-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .main-btn:hover {
+            border-color: var(--bronze);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .main-btn h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .main-btn p {
+            color: var(--slate);
+            font-size: 0.95rem;
+        }
+
+        .content-section-portal {
+            display: none;
+            padding: 100px 4rem;
+            background: var(--white);
+        }
+
+        .content-section-portal.active {
+            display: block;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: transparent;
+            border: 2px solid var(--bronze);
+            color: var(--bronze);
+            cursor: pointer;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: var(--bronze);
+            color: var(--white);
+        }
+
+        .process-step {
+            background: var(--warm-gray);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--bronze);
+        }
+
+        .process-step h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            line-height: 1.8;
+            color: var(--slate);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .process-step li {
+            margin-bottom: 0.5rem;
+            color: var(--slate);
+        }
+
+        .plan-card {
+            background: var(--warm-gray);
+            margin-bottom: 4rem;
+            overflow: hidden;
+        }
+
+        .plan-header {
+            padding: 2rem;
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .plan-header h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .plan-specs {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .plan-specs span {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .carousel-portal {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            background: var(--charcoal);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--slate);
+            color: var(--white);
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            transition: background 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--bronze);
+            color: var(--white);
+        }
+
+        .carousel-btn.prev {
+            left: 1rem;
+        }
+
+        .carousel-btn.next {
+            right: 1rem;
+        }
+
+        .plan-details {
+            padding: 2rem;
+        }
+
+        .details-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--bronze);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .details-btn:hover {
+            background: #a07d52;
+        }
+
+        .plan-features {
+            display: none;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .plan-features.active {
+            display: block;
+        }
+
+        .feature-group {
+            margin-bottom: 2rem;
+        }
+
+        .feature-group h4 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .feature-item {
+            padding: 0.5rem;
+            color: var(--slate);
+        }
+
+        .feature-item:before {
+            content: "✓ ";
+            color: var(--bronze);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .portal-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .main-btn {
+                max-width: 100%;
+            }
+
+            .carousel-portal {
+                height: 300px;
+            }
+
+            .plan-specs {
+                gap: 1rem;
+            }
+
+            .main-buttons-section,
+            .content-section-portal {
+                padding: 60px 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Screen -->
+    <div id="passwordScreen">
+        <div class="password-container">
+            <h1>AGENT PORTAL ACCESS</h1>
+            <p>This portal is restricted to registered agents and sales partners of Trio Luxury Homes.</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Enter Password">
+            <button onclick="checkPassword()" class="password-btn">ACCESS PORTAL</button>
+            <div id="errorMessage" class="error-message">Incorrect password. Please try again.</div>
+        </div>
+    </div>
+
+    <!-- Main Portal -->
+    <div id="mainPortal">
+        <!-- Floating Social Media Links -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/trioluxuryhomes/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+            
+            <a href="https://www.facebook.com/trioluxuryhomes" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a>
+            
+            <a href="https://www.youtube.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+            </a>
+            
+            <a href="https://www.tiktok.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="TikTok">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-shrink" id="mainNav">
+            <div class="container-fluid px-4 px-lg-5 justify-content-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="process.html">Process</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Portal Hero -->
+        <section class="portal-hero">
+            <div class="portal-hero-content">
+                <span class="agent-badge">CONFIDENTIAL AGENT PORTAL</span>
+                <h1>TRIO LUXURY HOMES</h1>
+                <p>Agent/Sales Team View Only</p>
+                <p style="margin-top: 1.5rem; font-size: 1rem;">This confidential portal is for registered agents and sales partners representing clients interested in building with Trio Luxury Homes.</p>
+            </div>
+        </section>
+
+        <!-- Main Menu -->
+        <div id="mainMenu" class="main-buttons-section">
+            <div class="container">
+                <h2 class="section-title">SELECT A SECTION</h2>
+                <div class="main-buttons">
+                    <div class="main-btn" onclick="showSection('howItWorks')">
+                        <h2>HOW IT WORKS</h2>
+                        <p>Complete process breakdown from enrollment to move-in</p>
+                    </div>
+                    <div class="main-btn" onclick="showSection('buildablePlans')">
+                        <h2>BUILDABLE PLANS</h2>
+                        <p>View available plans with specs, images, and inclusions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <div id="howItWorks" class="content-section-portal">
+            <div class="container">
+                <button class="back-btn" onclick="showMainMenu()">← Back to Menu</button>
+                <h2 class="section-title">HOW IT WORKS</h2>
+
+                <div class="process-step">
+                    <h3>Step 1 — Enroll: $50,000 Opt-In</h3>
+                    <p>This initial investment covers comprehensive due diligence and land acquisition:</p>
+                    <ul>
+                        <li>Professional land search services</li>
+                        <li>Earnest money deposit</li>
+                        <li>Full feasibility evaluation (soil tests, topography survey, utilities assessment, zoning verification)</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Important:</strong> Land is contracted under Trio Luxury Homes' name, then assigned/transferred to the client at closing.</p>
+                </div>
+
+                <div class="process-step">
+                    <h3>Step 2 — Land Purchase</h3>
+                    <p>Client funds the full land purchase price one week before closing.</p>
+                    <p>This ensures smooth transaction completion and immediate commencement of development planning.</p>
+                </div>
+
+                <div class="process-step">
+                    <h3>Step 3 — Horizontal Costs (Land + Development)</h3>
+                    <p><strong>Trio Luxury Homes contributes the first $50,000 toward land development, including:</strong></p>
+                    <ul>
+                        <li>Land clearing</li>
+                        <li>Site grading</li>
+                        <li>Utility preparation and connections</li>
+                        <li>Initial site work</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">Any development costs exceeding $50,000 are billed to the client at cost.</p>
+                </div>
+
+                <div class="process-step">
+                    <h3>Step 4 — Vertical Costs (Build Cost)</h3>
+                    <p>Client selects from Trio's curated collection of modern home plans.</p>
+                    <p><strong>Each plan features:</strong></p>
+                    <ul>
+                        <li>Fixed build cost with transparent pricing</li>
+                        <li>Premium finishes and features included (see plan details)</li>
+                        <li>Flexible payment structure: Client pays 25% of build cost in 3 equal payments, spaced every 2 months</li>
+                        <li>Optional customizations priced separately</li>
+                    </ul>
+                </div>
+
+                <div class="process-step">
+                    <h3>Step 5 — Build + Move-In</h3>
+                    <p>Construction timeline determined by local permitting authorities.</p>
+                    <p><strong>What's included:</strong></p>
+                    <ul>
+                        <li>All high-end finishes shown in project images</li>
+                        <li>Dedicated project management</li>
+                        <li>Regular updates and site meetings</li>
+                        <li>Final walkthrough and quality verification</li>
+                        <li>Complete guidance from groundbreaking to keys in hand</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buildable Plans Section -->
+        <div id="buildablePlans" class="content-section-portal">
+            <div class="container">
+                <button class="back-btn" onclick="showMainMenu()">← Back to Menu</button>
+                <h2 class="section-title">BUILDABLE PLANS</h2>
+
+                <!-- Plan 1 -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>THE MODERN ESTATE</h3>
+                        <div class="plan-specs">
+                            <span><strong>Square Footage:</strong> 4,800–6,200 sq ft</span>
+                            <span><strong>Bedrooms:</strong> 5-6</span>
+                            <span><strong>Bathrooms:</strong> 5.5-6.5</span>
+                            <span><strong>Garage:</strong> 3-Car</span>
+                            <span><strong>Starting Build Cost:</strong> Contact for Pricing</span>
+                        </div>
+                    </div>
+
+                    <div class="carousel-portal" data-carousel="1">
+                        <button class="carousel-btn prev" onclick="changeSlide(1, -1)">‹</button>
+                        <div class="carousel-track">
+                            <div class="carousel-slide">Exterior Rendering - Modern Contemporary Design</div>
+                            <div class="carousel-slide">Gourmet Kitchen - Premium Appliances & Island</div>
+                            <div class="carousel-slide">Great Room - Soaring Ceilings & Natural Light</div>
+                            <div class="carousel-slide">Primary Suite - Luxury Retreat</div>
+                            <div class="carousel-slide">Spa Bath - Frameless Glass & Freestanding Tub</div>
+                            <div class="carousel-slide">Outdoor Living - Covered Patio & Entertaining</div>
+                        </div>
+                        <button class="carousel-btn next" onclick="changeSlide(1, 1)">›</button>
+                    </div>
+
+                    <div class="plan-details">
+                        <p><strong>Featured Design:</strong> Clean lines, expansive glass, open-concept living. Seamless indoor-outdoor flow with covered outdoor living space.</p>
+                        <p><strong>Floor Plans:</strong> Main level with owner's suite option | Second level with additional bedrooms | Optional finished basement</p>
+                        <button class="details-btn" onclick="toggleDetails(1)">View Full Plan Details & Inclusions</button>
+
+                        <div id="planDetails1" class="plan-features">
+                            <div class="feature-group">
+                                <h4>LAND DEVELOPMENT INCLUDED</h4>
+                                <p>Trio contributes first $50,000 to land development. Additional development billed to client.</p>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>EXTERIOR FEATURES</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">4-Sides Brick + Back Hardie Plank Siding</div>
+                                    <div class="feature-item">Vinyl European Windows</div>
+                                    <div class="feature-item">30 Pallets of Grass</div>
+                                    <div class="feature-item">Covered Back Patio w/ Fan + Beam Accents</div>
+                                    <div class="feature-item">Sprinklers (4–5 Zones)</div>
+                                    <div class="feature-item">Vinyl Double Front Door</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>INTERIOR - GENERAL</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">10' Main Floor Ceilings</div>
+                                    <div class="feature-item">10' Second Floor Ceilings</div>
+                                    <div class="feature-item">8" Baseboards Main</div>
+                                    <div class="feature-item">Dining Room Wall Detail</div>
+                                    <div class="feature-item">Engineered Hardwood (majority)</div>
+                                    <div class="feature-item">Built-In Bookcases</div>
+                                    <div class="feature-item">Coffered Ceiling</div>
+                                    <div class="feature-item">Tray Ceilings</div>
+                                    <div class="feature-item">Wood Stairs w/ Iron Rails</div>
+                                    <div class="feature-item">Custom Closets</div>
+                                    <div class="feature-item">Ceiling Fans</div>
+                                    <div class="feature-item">Full wiring for security + media</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>KITCHEN</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">42" Upper Cabinets w/ Under Cabinet Lighting</div>
+                                    <div class="feature-item">Soft-Close Cabinets</div>
+                                    <div class="feature-item">Shaker RTA Style</div>
+                                    <div class="feature-item">5-Burner Gas Cooktop</div>
+                                    <div class="feature-item">Custom Hood</div>
+                                    <div class="feature-item">Oven/Microwave Combo</div>
+                                    <div class="feature-item">Dishwasher</div>
+                                    <div class="feature-item">Granite or Quartz</div>
+                                    <div class="feature-item">Large Island w/ Pendant Lighting</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>PRIMARY BATH</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">Frameless Glass Shower</div>
+                                    <div class="feature-item">Bench + Freestanding Tub</div>
+                                    <div class="feature-item">Full Tile Surround</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>ADDITIONAL FEATURES</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">Mudroom Bench</div>
+                                    <div class="feature-item">Tankless Water Heater</div>
+                                    <div class="feature-item">WiFi Garage Door Opener</div>
+                                    <div class="feature-item">EV Charger Ready</div>
+                                    <div class="feature-item">2-10 Builder Warranty</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>THE MODERN FARMHOUSE</h3>
+                        <div class="plan-specs">
+                            <span><strong>Square Footage:</strong> 3,800–5,200 sq ft</span>
+                            <span><strong>Bedrooms:</strong> 4-5</span>
+                            <span><strong>Bathrooms:</strong> 4.5-5.5</span>
+                            <span><strong>Garage:</strong> 2-3 Car</span>
+                            <span><strong>Starting Build Cost:</strong> Contact for Pricing</span>
+                        </div>
+                    </div>
+
+                    <div class="carousel-portal" data-carousel="2">
+                        <button class="carousel-btn prev" onclick="changeSlide(2, -1)">‹</button>
+                        <div class="carousel-track">
+                            <div class="carousel-slide">Farmhouse Exterior - Board & Batten Accents</div>
+                            <div class="carousel-slide">Open Kitchen - Rustic Modern Blend</div>
+                            <div class="carousel-slide">Living Space - Shiplap & Beams</div>
+                            <div class="carousel-slide">Primary Bedroom - Tranquil Retreat</div>
+                            <div class="carousel-slide">Designer Bath - Classic Elegance</div>
+                            <div class="carousel-slide">Back Porch - Outdoor Living</div>
+                        </div>
+                        <button class="carousel-btn next" onclick="changeSlide(2, 1)">›</button>
+                    </div>
+
+                    <div class="plan-details">
+                        <p><strong>Featured Design:</strong> Blending rustic charm with contemporary sophistication. Perfect balance of warmth and elegance.</p>
+                        <p><strong>Floor Plans:</strong> Flexible main level layout | Bonus room options | Optional basement finish</p>
+                        <button class="details-btn" onclick="toggleDetails(2)">View Full Plan Details & Inclusions</button>
+
+                        <div id="planDetails2" class="plan-features">
+                            <div class="feature-group">
+                                <h4>LAND DEVELOPMENT INCLUDED</h4>
+                                <p>Trio contributes first $50,000 to land development. Additional development billed to client.</p>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>EXTERIOR FEATURES</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">4-Sides Brick + Back Hardie Plank Siding</div>
+                                    <div class="feature-item">Vinyl European Windows</div>
+                                    <div class="feature-item">30 Pallets of Grass</div>
+                                    <div class="feature-item">Covered Back Patio w/ Fan + Beam Accents</div>
+                                    <div class="feature-item">Sprinklers (4–5 Zones)</div>
+                                    <div class="feature-item">Vinyl Double Front Door</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>INTERIOR - GENERAL</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">10' Main Floor Ceilings</div>
+                                    <div class="feature-item">10' Second Floor Ceilings</div>
+                                    <div class="feature-item">8" Baseboards Main</div>
+                                    <div class="feature-item">Dining Room Wall Detail</div>
+                                    <div class="feature-item">Engineered Hardwood (majority)</div>
+                                    <div class="feature-item">Built-In Bookcases</div>
+                                    <div class="feature-item">Coffered Ceiling</div>
+                                    <div class="feature-item">Tray Ceilings</div>
+                                    <div class="feature-item">Wood Stairs w/ Iron Rails</div>
+                                    <div class="feature-item">Custom Closets</div>
+                                    <div class="feature-item">Ceiling Fans</div>
+                                    <div class="feature-item">Full wiring for security + media</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>KITCHEN</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">42" Upper Cabinets w/ Under Cabinet Lighting</div>
+                                    <div class="feature-item">Soft-Close Cabinets</div>
+                                    <div class="feature-item">Shaker RTA Style</div>
+                                    <div class="feature-item">5-Burner Gas Cooktop</div>
+                                    <div class="feature-item">Custom Hood</div>
+                                    <div class="feature-item">Oven/Microwave Combo</div>
+                                    <div class="feature-item">Dishwasher</div>
+                                    <div class="feature-item">Granite or Quartz</div>
+                                    <div class="feature-item">Large Island w/ Pendant Lighting</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>PRIMARY BATH</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">Frameless Glass Shower</div>
+                                    <div class="feature-item">Bench + Freestanding Tub</div>
+                                    <div class="feature-item">Full Tile Surround</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>ADDITIONAL FEATURES</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">Mudroom Bench</div>
+                                    <div class="feature-item">Tankless Water Heater</div>
+                                    <div class="feature-item">WiFi Garage Door Opener</div>
+                                    <div class="feature-item">EV Charger Ready</div>
+                                    <div class="feature-item">2-10 Builder Warranty</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>THE CONTEMPORARY MASTERPIECE</h3>
+                        <div class="plan-specs">
+                            <span><strong>Square Footage:</strong> 5,500–6,800 sq ft</span>
+                            <span><strong>Bedrooms:</strong> 5-6</span>
+                            <span><strong>Bathrooms:</strong> 6-7</span>
+                            <span><strong>Garage:</strong> 3-4 Car</span>
+                            <span><strong>Starting Build Cost:</strong> Contact for Pricing</span>
+                        </div>
+                    </div>
+
+                    <div class="carousel-portal" data-carousel="3">
+                        <button class="carousel-btn prev" onclick="changeSlide(3, -1)">‹</button>
+                        <div class="carousel-track">
+                            <div class="carousel-slide">Bold Architectural Exterior</div>
+                            <div class="carousel-slide">Chef's Kitchen - High-End Finishes</div>
+                            <div class="carousel-slide">Great Room - Dramatic Spaces</div>
+                            <div class="carousel-slide">Luxurious Primary Suite</div>
+                            <div class="carousel-slide">Spa-Inspired Bathroom</div>
+                            <div class="carousel-slide">Resort-Style Outdoor Living</div>
+                        </div>
+                        <button class="carousel-btn next" onclick="changeSlide(3, 1)">›</button>
+                    </div>
+
+                    <div class="plan-details">
+                        <p><strong>Featured Design:</strong> Architectural masterpiece featuring bold geometric forms, luxurious finishes, and state-of-the-art amenities.</p>
+                        <p><strong>Floor Plans:</strong> Grand main level entertaining | Private bedroom suites | Full finished basement with recreation space</p>
+                        <button class="details-btn" onclick="toggleDetails(3)">View Full Plan Details & Inclusions</button>
+
+                        <div id="planDetails3" class="plan-features">
+                            <div class="feature-group">
+                                <h4>LAND DEVELOPMENT INCLUDED</h4>
+                                <p>Trio contributes first $50,000 to land development. Additional development billed to client.</p>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>EXTERIOR FEATURES</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">4-Sides Brick + Back Hardie Plank Siding</div>
+                                    <div class="feature-item">Vinyl European Windows</div>
+                                    <div class="feature-item">30 Pallets of Grass</div>
+                                    <div class="feature-item">Covered Back Patio w/ Fan + Beam Accents</div>
+                                    <div class="feature-item">Sprinklers (4–5 Zones)</div>
+                                    <div class="feature-item">Vinyl Double Front Door</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>INTERIOR - GENERAL</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">10' Main Floor Ceilings</div>
+                                    <div class="feature-item">10' Second Floor Ceilings</div>
+                                    <div class="feature-item">8" Baseboards Main</div>
+                                    <div class="feature-item">Dining Room Wall Detail</div>
+                                    <div class="feature-item">Engineered Hardwood (majority)</div>
+                                    <div class="feature-item">Built-In Bookcases</div>
+                                    <div class="feature-item">Coffered Ceiling</div>
+                                    <div class="feature-item">Tray Ceilings</div>
+                                    <div class="feature-item">Wood Stairs w/ Iron Rails</div>
+                                    <div class="feature-item">Custom Closets</div>
+                                    <div class="feature-item">Ceiling Fans</div>
+                                    <div class="feature-item">Full wiring for security + media</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>KITCHEN</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">42" Upper Cabinets w/ Under Cabinet Lighting</div>
+                                    <div class="feature-item">Soft-Close Cabinets</div>
+                                    <div class="feature-item">Shaker RTA Style</div>
+                                    <div class="feature-item">5-Burner Gas Cooktop</div>
+                                    <div class="feature-item">Custom Hood</div>
+                                    <div class="feature-item">Oven/Microwave Combo</div>
+                                    <div class="feature-item">Dishwasher</div>
+                                    <div class="feature-item">Granite or Quartz</div>
+                                    <div class="feature-item">Large Island w/ Pendant Lighting</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>PRIMARY BATH</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">Frameless Glass Shower</div>
+                                    <div class="feature-item">Bench + Freestanding Tub</div>
+                                    <div class="feature-item">Full Tile Surround</div>
+                                </div>
+                            </div>
+
+                            <div class="feature-group">
+                                <h4>ADDITIONAL FEATURES</h4>
+                                <div class="feature-list">
+                                    <div class="feature-item">Mudroom Bench</div>
+                                    <div class="feature-item">Tankless Water Heater</div>
+                                    <div class="feature-item">WiFi Garage Door Opener</div>
+                                    <div class="feature-item">EV Charger Ready</div>
+                                    <div class="feature-item">2-10 Builder Warranty</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <div class="container text-center">
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/trioluxuryhomes/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://www.facebook.com/trioluxuryhomes" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://www.youtube.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://www.tiktok.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="TikTok">
+                        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="mb-0">&copy; 2025 Trio Luxury Homes. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Password Check
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (password === 'Trio@2021') {
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('mainPortal').style.display = 'block';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        // Allow Enter key to submit password
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Show section
+        function showSection(sectionId) {
+            document.getElementById('mainMenu').style.display = 'none';
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Show main menu
+        function showMainMenu() {
+            document.querySelectorAll('.content-section-portal').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('mainMenu').style.display = 'block';
+        }
+
+        // Carousel functionality
+        let carouselPositions = {1: 0, 2: 0, 3: 0};
+
+        function changeSlide(carouselNum, direction) {
+            const carousel = document.querySelector(`[data-carousel="${carouselNum}"]`);
+            const track = carousel.querySelector('.carousel-track');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const slideCount = slides.length;
+            
+            carouselPositions[carouselNum] += direction;
+            
+            if (carouselPositions[carouselNum] < 0) {
+                carouselPositions[carouselNum] = slideCount - 1;
+            } else if (carouselPositions[carouselNum] >= slideCount) {
+                carouselPositions[carouselNum] = 0;
+            }
+            
+            track.style.transform = `translateX(-${carouselPositions[carouselNum] * 100}%)`;
+        }
+
+        // Toggle plan details
+        function toggleDetails(planNum) {
+            const details = document.getElementById(`planDetails${planNum}`);
+            const btn = event.target;
+            
+            if (details.classList.contains('active')) {
+                details.classList.remove('active');
+                btn.textContent = 'View Full Plan Details & Inclusions';
+            } else {
+                details.classList.add('active');
+                btn.textContent = 'Hide Plan Details';
+            }
+        }
+
+        // Navbar shrink
+        const navbarShrink = function() {
+            const navbarCollapsible = document.body.querySelector('#mainNav');
+            if (!navbarCollapsible) return;
+            
+            if (window.scrollY === 0) {
+                navbarCollapsible.classList.remove('navbar-shrink');
+            } else {
+                navbarCollapsible.classList.add('navbar-shrink');
+            }
+        };
+
+        navbarShrink();
+        document.addEventListener('scroll', navbarShrink);
+
+        // Collapse responsive navbar
+        const navbarToggler = document.body.querySelector('.navbar-toggler');
+        const responsiveNavItems = [].slice.call(
+            document.querySelectorAll('#navbarResponsive .nav-link')
+        );
+        
+        responsiveNavItems.map(function(responsiveNavItem) {
+            responsiveNavItem.addEventListener('click', () => {
+                if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                    navbarToggler.click();
+                }
+            });
+        });
+
+        // Social links scroll color change
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 0) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
