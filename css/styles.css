@@ -576,66 +576,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
-
-@media (max-width: 991px) {
-    .hero-title {
-        font-size: 3rem;
-        letter-spacing: 4px;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .intro-section,
-    .projects-section,
-    .approach-section,
-    .cta-section,
-    .contact-section,
-    .content-section,
-    .content-section-alt {
-        padding: 60px 2rem;
-    }
-    
-    .value-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .page-hero-content h1 {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .hero-title {
-        font-size: 2.5rem;
-        letter-spacing: 3px;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    
-    .project-image {
-        height: 300px;
-    }
-    
-    #mainNav .navbar-nav {
-        gap: 1rem;
-        text-align: center;
-    }
-
-    .contact-intro .phone-number {
-        font-size: 1.25rem;
-    }
-
-    .page-hero-content h1 {
-        font-size: 2rem;
-        letter-spacing: 2px;
-    }
-/* ========================================
    SOCIAL MEDIA LINKS
    ======================================== */
 
@@ -741,3 +681,65 @@ body.scrolled .social-links a:hover {
         margin: 0.25rem;
     }
 }
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .intro-section,
+    .projects-section,
+    .approach-section,
+    .cta-section,
+    .contact-section,
+    .content-section,
+    .content-section-alt {
+        padding: 60px 2rem;
+    }
+    
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .project-image {
+        height: 300px;
+    }
+    
+    #mainNav .navbar-nav {
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .contact-intro .phone-number {
+        font-size: 1.25rem;
+    }
+
+    .page-hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
