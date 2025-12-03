@@ -434,6 +434,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ========================================
+   FOOTER
+   ======================================== */
+
+.footer-section {
+    padding: 3rem 4rem;
+    background: var(--charcoal);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
    SOCIAL MEDIA LINKS
    ======================================== */
 
@@ -538,17 +550,6 @@ body.scrolled .social-links a:hover {
     .filter-btn {
         margin: 0.25rem;
     }
-}
-/* ========================================
-   FOOTER
-   ======================================== */
-
-.footer-section {
-    padding: 3rem 4rem;
-    background: var(--charcoal);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.875rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* ========================================
