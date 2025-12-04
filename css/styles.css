@@ -166,6 +166,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ========================================
+   AGENT PORTAL HERO SECTION
+   ======================================== */
+
+.portal-hero-content h1 {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-bottom: 0.5rem;
+    text-shadow: 3px 3px 12px rgba(0,0,0,0.8);
+    background: rgba(26, 26, 26, 0.75);
+    padding: 1rem 2rem;
+    display: inline-block;
+    color: var(--white);
+}
+
+/* ========================================
    BUTTONS
    ======================================== */
 
@@ -677,7 +694,7 @@ body.scrolled .social-links a:hover {
     .footer-social {
         gap: 1.5rem;
     }
-}
+    
     .filter-btn {
         margin: 0.25rem;
     }
@@ -715,6 +732,13 @@ body.scrolled .social-links a:hover {
     .page-hero-content h1 {
         font-size: 2.5rem;
     }
+    
+    /* Agent Portal Responsive */
+    .portal-hero-content h1 {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+        padding: 0.75rem 1.5rem;
+    }
 }
 
 @media (max-width: 767px) {
@@ -744,3 +768,11 @@ body.scrolled .social-links a:hover {
         font-size: 2rem;
         letter-spacing: 2px;
     }
+    
+    /* Agent Portal Mobile */
+    .portal-hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        padding: 0.5rem 1rem;
+    }
+}
