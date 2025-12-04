@@ -682,7 +682,17 @@ body.scrolled .social-links a:hover {
         margin: 0.25rem;
     }
 }
-
+.portal-hero-content h1 {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-bottom: 0.5rem;
+    text-shadow: 3px 3px 12px rgba(0,0,0,0.8);
+    background: rgba(26, 26, 26, 0.75);
+    padding: 1rem 2rem;
+    display: inline-block;
+}
 
 /* ========================================
    RESPONSIVE DESIGN
