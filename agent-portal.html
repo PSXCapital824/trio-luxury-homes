@@ -120,8 +120,11 @@
             color: var(--white);
             z-index: 1;
             padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
+        
         .agent-badge {
             display: inline-block;
             background: var(--bronze);
@@ -129,16 +132,28 @@
             padding: 0.5rem 1.5rem;
             font-size: 0.85rem;
             letter-spacing: 1px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
+            order: 1;  /* Shows first */
         }
-
+        
         .portal-hero-content h1 {
             font-family: var(--font-display);
             font-size: 4rem;
             font-weight: 700;
             letter-spacing: 6px;
             margin-bottom: 0.5rem;
+            order: 2;  /* Shows second */
+        }
+        
+        .portal-hero-content .subtitle {
+            font-size: 1.1rem;
+            color: var(--white);
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            line-height: 1.8;
+            font-weight: 400;
+            order: 3;  /* Shows third */
         }
 
         .portal-hero-content .subtitle {
