@@ -699,18 +699,7 @@ body.scrolled .social-links a:hover {
         margin: 0.25rem;
     }
 }
-/* ========================================
-   CAROUSEL MOBILE UPDATE
-   ======================================== */
-@media (max-width: 768px) {
-    .carousel-portal {
-        height: 400px;  /* Adjusted for mobile */
-    }
-    
-    .carousel-slide.floorplan {
-        padding: 1rem;
-    }
-}
+
 /* ========================================
    RESPONSIVE DESIGN
    ======================================== */
