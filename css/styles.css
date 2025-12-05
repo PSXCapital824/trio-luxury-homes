@@ -206,6 +206,18 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-2px);
 }
 
+/* Agent Portal Content Sections */
+.content-section-portal {
+    display: none;
+    padding: 80px 4rem;
+    background: #FFFFFF;
+}
+
+.content-section-portal.active {
+    display: block;
+}
+
+
 /* ========================================
    INTRODUCTION SECTION
    ======================================== */
