@@ -166,19 +166,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ========================================
-   AGENT PORTAL HERO SECTION
-   ======================================== */
-
-.portal-hero-content h1 {
-    font-family: var(--font-display);
-    font-size: 3.5rem;
-    font-weight: 300;
-    letter-spacing: 4px;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-}
-
-/* ========================================
    BUTTONS
    ======================================== */
 
@@ -201,7 +188,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--white);
     transform: translateY(-2px);
 }
-
 
 /* ========================================
    INTRODUCTION SECTION
@@ -459,7 +445,6 @@ h1, h2, h3, h4, h5, h6 {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
 /* ========================================
    ABOUT PAGE
    ======================================== */
@@ -489,6 +474,12 @@ h1, h2, h3, h4, h5, h6 {
 .content-section-alt {
     padding: 100px 4rem;
     background: var(--warm-gray);
+}
+
+.lead {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--slate);
 }
 
 .value-grid {
@@ -591,6 +582,131 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ========================================
+   INVEST PAGE STYLES
+   ======================================== */
+
+.investment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.investment-card {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    border: 2px solid var(--light-gray);
+    transition: all 0.3s ease;
+}
+
+.investment-card:hover {
+    border-color: var(--bronze);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.investment-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.risk-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+}
+
+.risk-moderate {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ff9800;
+}
+
+.risk-conservative {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+}
+
+.investment-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.investment-card li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--slate);
+}
+
+.investment-card li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--bronze);
+    font-weight: bold;
+}
+
+/* Why Invest Section */
+.why-invest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.why-item {
+    text-align: center;
+}
+
+.why-item h4 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+/* Stats Section */
+.stats-section {
+    padding: 80px 4rem;
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--bronze);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* ========================================
    SOCIAL MEDIA LINKS
    ======================================== */
 
@@ -676,38 +792,6 @@ body.scrolled .social-links a:hover {
     display: block;
 }
 
-/* Responsive adjustments */
-@media (max-width: 991px) {
-    .social-links {
-        right: 1rem;
-        gap: 1rem;
-    }
-    
-    .social-links a {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .social-links a svg {
-        width: 16px;
-        height: 16px;
-    }
-}
-
-@media (max-width: 767px) {
-    .social-links {
-        display: none; /* Hide floating social on mobile */
-    }
-    
-    .footer-social {
-        gap: 1.5rem;
-    }
-    
-    .filter-btn {
-        margin: 0.25rem;
-    }
-}
-
 /* ========================================
    RESPONSIVE DESIGN
    ======================================== */
@@ -740,11 +824,19 @@ body.scrolled .social-links a:hover {
         font-size: 2.5rem;
     }
     
-    /* Agent Portal Responsive */
-    .portal-hero-content h1 {
-        font-size: 2.5rem;
-        letter-spacing: 3px;
-        padding: 0.75rem 1.5rem;
+    .social-links {
+        right: 1rem;
+        gap: 1rem;
+    }
+    
+    .social-links a {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .social-links a svg {
+        width: 16px;
+        height: 16px;
     }
 }
 
@@ -776,10 +868,28 @@ body.scrolled .social-links a:hover {
         letter-spacing: 2px;
     }
     
-    /* Agent Portal Mobile */
-    .portal-hero-content h1 {
-        font-size: 2rem;
-        letter-spacing: 2px;
-        padding: 0.5rem 1rem;
+    .social-links {
+        display: none; /* Hide floating social on mobile */
+    }
+    
+    .footer-social {
+        gap: 1.5rem;
+    }
+    
+    .filter-btn {
+        margin: 0.25rem;
+    }
+    
+    .investment-grid,
+    .why-invest-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .stats-section {
+        padding: 60px 2rem;
     }
 }
