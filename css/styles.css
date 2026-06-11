@@ -1291,6 +1291,9 @@ body.scrolled .social-links a:hover {
     overflow: hidden;
     cursor: pointer;
     height: 480px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .home-gallery-card img {
