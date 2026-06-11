@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="15152 Hopewell Road, Milton GA — 9,758 SF Transitional English Country estate on 2.038 acres. 6 bed / 9+2 bath, 4-car garage. Under construction, May 2027 delivery. $5,449,000. Designed by Goodman Design, built by Trio Luxury Homes.">
+    <title>15152 Hopewell Road | Trio Luxury Homes</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+
+        /* ── STATUS BADGE ── */
+        .listing-status-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: #2e7d32;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        /* ── HERO ── */
+        .listing-hero {
+            position: relative;
+            height: 92vh;
+            min-height: 620px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+        .listing-hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                rgba(0,0,0,0.08) 0%,
+                rgba(0,0,0,0.72) 100%),
+                url('images/15152/front-1.jpg') center/cover no-repeat;
+        }
+        .listing-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 5rem 5rem;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+        .listing-hero-left .eyebrow {
+            font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 0.75rem;
+        }
+        .listing-hero-left h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 300; letter-spacing: 4px;
+            color: var(--white); margin: 0 0 0.35rem; line-height: 1.05;
+        }
+        .listing-hero-left .city {
+            font-size: 0.85rem; color: rgba(255,255,255,0.5);
+            letter-spacing: 2px; font-family: var(--font-body); text-transform: uppercase;
+        }
+        .listing-hero-left .style-tag {
+            font-size: 0.65rem; color: rgba(255,255,255,0.35);
+            letter-spacing: 3px; font-family: var(--font-body); text-transform: uppercase;
+            margin-top: 0.4rem; display: block;
+        }
+        .listing-hero-specs {
+            display: flex; gap: 2.5rem; flex-shrink: 0;
+        }
+        .listing-hero-spec { text-align: center; }
+        .listing-hero-spec-val {
+            font-family: var(--font-display);
+            font-size: 1.5rem; font-weight: 300;
+            color: var(--white); display: block; line-height: 1;
+        }
+        .listing-hero-spec-label {
+            font-size: 0.6rem; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(255,255,255,0.4);
+            display: block; margin-top: 4px;
+        }
+
+        /* ── INTRO BAND ── */
+        .intro-band {
+            background: #0d0d0d;
+            padding: 3rem 5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .intro-band-inner {
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
+            gap: 0;
+        }
+        .intro-band-divider {
+            background: rgba(255,255,255,0.08);
+            align-self: stretch;
+        }
+        .intro-stat {
+            text-align: center;
+            padding: 1rem 2rem;
+        }
+        .intro-stat-val {
+            font-family: var(--font-display);
+            font-size: 2rem; font-weight: 300;
+            color: var(--white); display: block; line-height: 1; margin-bottom: 0.35rem;
+        }
+        .intro-stat-label {
+            font-size: 0.58rem; letter-spacing: 3px;
+            text-transform: uppercase; color: rgba(255,255,255,0.3);
+        }
+
+        /* ── DETAIL BODY ── */
+        .listing-detail-body {
+            background: var(--charcoal);
+            padding: 80px 5rem;
+        }
+        .listing-detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 5rem;
+            align-items: start;
+        }
+        .listing-description {
+            font-size: 1.05rem; line-height: 2;
+            color: rgba(255,255,255,0.6); margin-bottom: 3rem;
+            max-width: 600px;
+        }
+        .listing-features-title {
+            font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--bronze); margin-bottom: 1.5rem; display: block;
+        }
+        .detail-row {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+        .detail-row:last-child { border-bottom: none; }
+        .detail-label {
+            font-family: var(--font-display);
+            font-size: 0.9rem; font-weight: 400;
+            letter-spacing: 1px; color: var(--white);
+        }
+        .detail-value {
+            font-size: 0.82rem; line-height: 1.75;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ── SIDEBAR ── */
+        .listing-sidebar {
+            background: #111;
+            padding: 2.5rem 2rem;
+            position: sticky;
+            top: 100px;
+        }
+        .listing-sidebar .price-label {
+            font-size: 0.6rem; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--bronze);
+            display: block; margin-bottom: 0.35rem;
+        }
+        .listing-sidebar .price {
+            font-family: var(--font-display);
+            font-size: 2.4rem; font-weight: 300;
+            color: var(--white); display: block;
+            margin-bottom: 0.35rem; letter-spacing: 1px;
+        }
+        .listing-sidebar .price-note {
+            font-size: 0.7rem; color: rgba(255,255,255,0.3);
+            margin-bottom: 2rem; display: block;
+        }
+        .sidebar-spec-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.25rem; margin-bottom: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .sidebar-spec-label {
+            font-size: 0.58rem; letter-spacing: 2px;
+            text-transform: uppercase; color: rgba(255,255,255,0.3);
+            display: block; margin-bottom: 2px;
+        }
+        .sidebar-spec-value {
+            font-size: 0.82rem; color: rgba(255,255,255,0.75);
+        }
+        .sidebar-included {
+            display: flex; align-items: center; gap: 0.5rem;
+            padding: 0.45rem 0; font-size: 0.72rem;
+            color: rgba(255,255,255,0.4);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .sidebar-included:first-of-type { border-top: none; }
+        .inc-dot { width: 6px; height: 6px; background: #4caf50; border-radius: 50%; flex-shrink: 0; }
+        .sidebar-cta {
+            display: block; text-align: center;
+            padding: 14px; background: transparent;
+            border: 1.5px solid var(--bronze); color: var(--bronze);
+            font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+            text-decoration: none; margin-top: 1.75rem; transition: all 0.3s;
+        }
+        .sidebar-cta:hover { background: var(--bronze); color: var(--white); }
+        .sidebar-secondary-cta {
+            display: block; text-align: center;
+            padding: 11px; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.55);
+            font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase;
+            text-decoration: none; margin-top: 0.75rem; transition: all 0.3s;
+        }
+        .sidebar-secondary-cta:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+
+        /* ── GALLERY ── */
+        .gallery-section {
+            background: #0a0a0a;
+            padding: 5rem;
+        }
+        .gallery-section-eyebrow {
+            font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 1rem;
+        }
+        .gallery-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 300;
+            letter-spacing: 4px; color: var(--white);
+            margin-bottom: 2.5rem; text-transform: uppercase;
+        }
+        .photo-grid-hero {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        .photo-grid-hero-main {
+            grid-row: span 2;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        .photo-grid-hero-side {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        .photo-grid-hero-main img,
+        .photo-grid-hero-side img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.6s ease;
+        }
+        .photo-grid-hero-main:hover img,
+        .photo-grid-hero-side:hover img { transform: scale(1.03); }
+        .photo-placeholder {
+            width: 100%; height: 100%;
+            background: #1a1a1a;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            min-height: 220px;
+        }
+        .photo-placeholder span {
+            font-size: 0.62rem; letter-spacing: 3px;
+            text-transform: uppercase; color: rgba(255,255,255,0.2);
+            margin-top: 0.75rem;
+        }
+        .gallery-note {
+            font-size: 0.72rem; color: rgba(255,255,255,0.25);
+            letter-spacing: 1px; margin-top: 1.25rem; text-align: right;
+        }
+
+        /* ── OUTDOOR LIVING ── */
+        .outdoor-section {
+            background: #F9F8F6;
+            padding: 5rem;
+        }
+        .outdoor-section-eyebrow {
+            font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 1rem;
+        }
+        .outdoor-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 300;
+            letter-spacing: 4px; color: var(--charcoal);
+            margin-bottom: 0.75rem; text-transform: uppercase;
+        }
+        .outdoor-intro {
+            font-size: 0.88rem; color: #666; line-height: 1.85;
+            max-width: 640px; margin-bottom: 4rem;
+        }
+        .outdoor-spaces {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: #ddd;
+            border: 1px solid #ddd;
+        }
+        .outdoor-space {
+            background: #FAFAF8;
+            overflow: hidden;
+        }
+        .outdoor-space-img {
+            width: 100%; aspect-ratio: 4/3;
+            object-fit: cover; display: block;
+            transition: transform 0.6s ease;
+        }
+        .outdoor-space:hover .outdoor-space-img { transform: scale(1.03); }
+        .outdoor-space-img-placeholder {
+            width: 100%; aspect-ratio: 4/3;
+            background: #1a1a1a;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+        }
+        .outdoor-space-img-placeholder span {
+            font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase;
+            color: rgba(255,255,255,0.2); margin-top: 0.5rem; text-align: center;
+        }
+        .outdoor-space-body {
+            padding: 2rem 2.25rem 2.5rem;
+        }
+        .outdoor-space-num {
+            font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 0.6rem;
+        }
+        .outdoor-space-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem; font-weight: 400; letter-spacing: 2px;
+            color: var(--charcoal); display: block; margin-bottom: 1rem;
+        }
+        .outdoor-space-desc {
+            font-size: 0.8rem; color: #777; line-height: 1.8;
+        }
+        .outdoor-space-features {
+            list-style: none; padding: 0; margin: 1rem 0 0;
+        }
+        .outdoor-space-features li {
+            font-size: 0.75rem; color: #888;
+            padding: 0.35rem 0;
+            border-top: 1px solid #eee;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .outdoor-space-features li:first-child { border-top: none; }
+        .outdoor-feat-dot {
+            width: 4px; height: 4px; background: var(--bronze);
+            border-radius: 50%; flex-shrink: 0;
+        }
+
+        /* ── FLOOR PLANS (Ashford-style) ── */
+        .visuals-section {
+            background: #F9F8F6;
+        }
+        .visuals-section-header {
+            background: var(--charcoal);
+            padding: 4rem 5rem 3.5rem;
+        }
+        .visuals-section-header-eyebrow {
+            font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 1rem;
+        }
+        .visuals-section-header h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 300;
+            letter-spacing: 4px; color: var(--white);
+            margin-bottom: 0.75rem; text-transform: uppercase;
+        }
+        .visuals-section-header p {
+            font-size: 0.82rem; color: rgba(255,255,255,0.4);
+            line-height: 1.7; max-width: 540px; margin: 0;
+        }
+        .visual-block {
+            border-bottom: 1px solid #E8E8E8;
+        }
+        .visual-block:last-child { border-bottom: none; }
+        .visual-block-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 5rem;
+            background: var(--charcoal);
+        }
+        .visual-block-header h3 {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--white);
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .visual-block-sqft {
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 2px;
+        }
+        .visual-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .visual-cell {
+            position: relative;
+            overflow: hidden;
+        }
+        .visual-cell-label {
+            position: absolute;
+            top: 1.25rem;
+            left: 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--bronze);
+            z-index: 2;
+            background: rgba(249,248,246,0.9);
+            padding: 4px 10px;
+        }
+        .visual-cell-label.dark {
+            background: rgba(17,17,17,0.9);
+        }
+        .fp-wrap {
+            background: #FAFAF8;
+            border-right: 1px solid #E8E8E8;
+            padding: 0;
+        }
+        .fp-wrap img {
+            width: 100%; height: auto; display: block;
+        }
+
+        /* ── INTERIOR FEATURES ── */
+        .interior-features-section {
+            background: var(--charcoal);
+            padding: 5rem;
+        }
+        .interior-features-section-eyebrow {
+            font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 1rem;
+        }
+        .interior-features-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 300;
+            letter-spacing: 4px; color: var(--white);
+            margin-bottom: 3rem; text-transform: uppercase;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.07);
+        }
+        .feature-block {
+            background: var(--charcoal);
+            padding: 2.5rem 2.25rem;
+        }
+        .feature-block-icon {
+            width: 32px; height: 32px;
+            margin-bottom: 1.25rem; opacity: 0.4;
+        }
+        .feature-block-title {
+            font-family: var(--font-display);
+            font-size: 1rem; font-weight: 400; letter-spacing: 2px;
+            color: var(--white); display: block; margin-bottom: 0.75rem;
+        }
+        .feature-block-desc {
+            font-size: 0.78rem; color: rgba(255,255,255,0.4);
+            line-height: 1.85;
+        }
+
+        /* ── CONSTRUCTION PROGRESS ── */
+        .construction-section {
+            background: #0d0d0d;
+            padding: 5rem;
+        }
+        .construction-section-eyebrow {
+            font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 1rem;
+        }
+        .construction-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 300;
+            letter-spacing: 4px; color: var(--white);
+            margin-bottom: 3rem; text-transform: uppercase;
+        }
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 20px; left: 0; right: 0; height: 1px;
+            background: rgba(255,255,255,0.1);
+            z-index: 0;
+        }
+        .timeline-item {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        .timeline-dot {
+            width: 12px; height: 12px; border-radius: 50%;
+            background: #333;
+            border: 2px solid rgba(255,255,255,0.15);
+            margin: 0 auto 1.25rem;
+        }
+        .timeline-dot.active {
+            background: var(--bronze);
+            border-color: var(--bronze);
+            box-shadow: 0 0 0 4px rgba(184,149,106,0.2);
+        }
+        .timeline-dot.complete {
+            background: #4caf50;
+            border-color: #4caf50;
+        }
+        .timeline-phase {
+            font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase;
+            color: rgba(255,255,255,0.4); display: block; margin-bottom: 0.35rem;
+        }
+        .timeline-date {
+            font-family: var(--font-display);
+            font-size: 0.9rem; color: rgba(255,255,255,0.65);
+        }
+        .timeline-note {
+            font-size: 0.65rem; color: rgba(255,255,255,0.25);
+            margin-top: 0.25rem; display: block;
+        }
+
+        /* ── LOCATION ── */
+        .location-section {
+            background: var(--charcoal);
+            padding: 5rem;
+        }
+        .location-section-eyebrow {
+            font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 1rem;
+        }
+        .location-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 300;
+            letter-spacing: 4px; color: var(--white);
+            margin-bottom: 2.5rem; text-transform: uppercase;
+        }
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 4rem;
+            align-items: start;
+        }
+        .map-embed {
+            width: 100%; min-height: 360px;
+            border: none; display: block;
+            filter: grayscale(1) invert(1) contrast(0.85);
+        }
+        .nearby-list { list-style: none; padding: 0; margin: 0; }
+        .nearby-list li {
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex; justify-content: space-between;
+            align-items: center;
+        }
+        .nearby-list li:last-child { border-bottom: none; }
+        .nearby-name { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
+        .nearby-dist { font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+        .nearby-title {
+            font-size: 0.62rem; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 1rem;
+        }
+
+        /* ── NAV BAR ── */
+        .listing-nav-bar {
+            background: #111;
+            padding: 1.5rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .listing-nav-btn {
+            font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+            color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s;
+        }
+        .listing-nav-btn:hover { color: var(--bronze); }
+        .back-to-listings {
+            font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--bronze); text-decoration: none;
+        }
+
+        /* ── FINISHES CALLOUT ── */
+        .finishes-band {
+            background: #0a0a0a;
+            padding: 5rem;
+        }
+        .finishes-band-eyebrow {
+            font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 1rem;
+        }
+        .finishes-band h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 300;
+            letter-spacing: 4px; color: var(--white);
+            margin-bottom: 0.75rem; text-transform: uppercase;
+        }
+        .finishes-band-intro {
+            font-size: 0.88rem; color: rgba(255,255,255,0.4);
+            max-width: 600px; line-height: 1.85; margin-bottom: 3.5rem;
+        }
+        .finishes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.05);
+        }
+        .finish-block {
+            background: #0a0a0a;
+            padding: 2rem 1.75rem;
+        }
+        .finish-block-category {
+            font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--bronze); display: block; margin-bottom: 1rem;
+        }
+        .finish-block-list {
+            list-style: none; padding: 0; margin: 0;
+        }
+        .finish-block-list li {
+            font-size: 0.76rem; color: rgba(255,255,255,0.45);
+            padding: 0.4rem 0; border-top: 1px solid rgba(255,255,255,0.04);
+            line-height: 1.5;
+        }
+        .finish-block-list li:first-child { border-top: none; }
+
+        @media (max-width: 1100px) {
+            .features-grid, .outdoor-spaces { grid-template-columns: 1fr 1fr; }
+            .finishes-grid { grid-template-columns: 1fr 1fr; }
+            .timeline { grid-template-columns: 1fr; gap: 1.5rem; }
+            .timeline::before { display: none; }
+            .timeline-item { text-align: left; display: flex; align-items: flex-start; gap: 1.25rem; }
+            .timeline-dot { margin: 4px 0 0; flex-shrink: 0; }
+        }
+        @media (max-width: 991px) {
+            .listing-hero-content { flex-direction: column; padding: 0 2rem 3rem; }
+            .listing-hero-specs { gap: 1.5rem; }
+            .listing-detail-body, .gallery-section, .outdoor-section,
+            .visuals-section-header, .interior-features-section,
+            .construction-section, .location-section, .finishes-band { padding: 60px 2rem; }
+            .visual-block-header { padding: 1.5rem 2rem; }
+            .listing-detail-layout, .location-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .listing-sidebar { position: static; }
+            .intro-band { padding: 2.5rem 2rem; }
+            .intro-band-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .intro-band-divider { display: none; }
+            .detail-row { grid-template-columns: 1fr; gap: 0.35rem; }
+            .listing-nav-bar { padding-left: 2rem; padding-right: 2rem; }
+            .features-grid, .outdoor-spaces { grid-template-columns: 1fr; }
+            .visual-row { grid-template-columns: 1fr; }
+            .photo-grid-hero { grid-template-columns: 1fr; }
+            .photo-grid-hero-main { grid-row: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="social-links">
+        <a href="https://www.instagram.com/trioluxuryhomes/" target="_blank" rel="noopener" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.facebook.com/trioluxuryhomes" target="_blank" rel="noopener" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.youtube.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="YouTube"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://www.tiktok.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="TikTok"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container-fluid px-4 px-lg-5 justify-content-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">How We Build</a></li>
+                    <li class="nav-item"><a class="nav-link" href="our-plans.html">Our Plans</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="portfolio.html">Current Listings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="invest.html">Invest</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="listing-hero">
+        <div class="listing-hero-bg"></div>
+        <div class="listing-hero-content">
+            <div class="listing-hero-left">
+                <span class="eyebrow">Trio Luxury Homes &mdash; Exclusive Pre-Construction</span>
+                <span class="listing-status-badge">Available</span>
+                <h1>15152 Hopewell<br>Road</h1>
+                <span class="city">Milton, Georgia</span>
+                <span class="style-tag">Transitional English Country Estate</span>
+            </div>
+            <div class="listing-hero-specs">
+                <div class="listing-hero-spec">
+                    <span class="listing-hero-spec-val">2.038</span>
+                    <span class="listing-hero-spec-label">Acres</span>
+                </div>
+                <div class="listing-hero-spec">
+                    <span class="listing-hero-spec-val">9,758</span>
+                    <span class="listing-hero-spec-label">Sq. Ft.</span>
+                </div>
+                <div class="listing-hero-spec">
+                    <span class="listing-hero-spec-val">6 / 9+2</span>
+                    <span class="listing-hero-spec-label">Bed / Bath</span>
+                </div>
+                <div class="listing-hero-spec">
+                    <span class="listing-hero-spec-val">4-Car</span>
+                    <span class="listing-hero-spec-label">Garage</span>
+                </div>
+                <div class="listing-hero-spec">
+                    <span class="listing-hero-spec-val">May '27</span>
+                    <span class="listing-hero-spec-label">Delivery</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── STATS BAND ── -->
+    <div class="intro-band">
+        <div class="intro-band-inner">
+            <div class="intro-stat">
+                <span class="intro-stat-val">$5,449,000</span>
+                <span class="intro-stat-label">Listed Price</span>
+            </div>
+            <div class="intro-band-divider"></div>
+            <div class="intro-stat">
+                <span class="intro-stat-val">9,758 SF</span>
+                <span class="intro-stat-label">Total Living Area</span>
+            </div>
+            <div class="intro-band-divider"></div>
+            <div class="intro-stat">
+                <span class="intro-stat-val">3 Levels</span>
+                <span class="intro-stat-label">Main · Upper · Basement</span>
+            </div>
+            <div class="intro-band-divider"></div>
+            <div class="intro-stat">
+                <span class="intro-stat-val">Goodman</span>
+                <span class="intro-stat-label">Architect of Record</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── DETAIL BODY ── -->
+    <section class="listing-detail-body">
+        <div class="listing-detail-layout">
+            <div>
+                <p class="listing-description">On 2.038 private acres along one of Milton's most coveted corridors, 15152 Hopewell Road represents the pinnacle of what Trio Luxury Homes builds. Designed by Goodman Design, this three-level Transitional English Country estate unfolds across 9,758 square feet of thoughtfully planned living space — blending the warmth and character of classic English architecture with the open, light-filled sensibility of modern luxury.</p>
+                <p class="listing-description" style="margin-top:-1.5rem;">Three distinct outdoor living spaces cascade from the rear of the home: a walled courtyard, a resort-caliber pool terrace, and a lower-level private backyard — each designed as its own destination. This is a home for a buyer who expects everything to be extraordinary.</p>
+
+                <span class="listing-features-title">Property Details</span>
+                <div class="detail-row">
+                    <div class="detail-label">Address</div>
+                    <div class="detail-value">15152 Hopewell Road, Milton, GA 30004</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Status</div>
+                    <div class="detail-value">Available — Under Construction · May 2027 Delivery</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Asking Price</div>
+                    <div class="detail-value" style="color:rgba(255,255,255,0.75); font-size:0.9rem; font-family:var(--font-display); letter-spacing:1px;">$5,449,000</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Lot Size</div>
+                    <div class="detail-value">2.038 Acres — Private, gated parcel in the heart of Milton</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Total Sq. Ft.</div>
+                    <div class="detail-value">9,758 SF — Across three levels (Main, Upper, Basement)</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Bedrooms</div>
+                    <div class="detail-value">6 Bedrooms — Including main-level owner's suite and guest suite</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Bathrooms</div>
+                    <div class="detail-value">9 Full + 2 Half Baths — En-suite for every bedroom; dedicated powder rooms on main and basement</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Garage</div>
+                    <div class="detail-value">4-Car Attached Garage — Tandem and side-entry configuration; EV-charging-ready</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Architecture</div>
+                    <div class="detail-value">Transitional English Country — Goodman Design, Atlanta</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Builder</div>
+                    <div class="detail-value">Trio Luxury Homes — North Atlanta's premier custom home builder</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Outdoor Living</div>
+                    <div class="detail-value">Three-level rear grounds: walled courtyard, resort pool terrace, lower-level private backyard</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Construction</div>
+                    <div class="detail-value">New construction — site preparation underway; framing in progress</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">County / Schools</div>
+                    <div class="detail-value">Fulton County — Top-rated Milton High School district; minutes to premier private schools</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Warranty</div>
+                    <div class="detail-value">2-10 Home Buyers Warranty — Standard on all Trio builds</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Buyer Opportunity</div>
+                    <div class="detail-value">Pre-construction access — Selections and customizations available to the buyer of record prior to close of construction</div>
+                </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="listing-sidebar">
+                <span class="price-label">Listed At</span>
+                <span class="price">$5,449,000</span>
+                <span class="price-note">Pre-construction · May 2027 delivery</span>
+                <div class="sidebar-spec-grid">
+                    <div><span class="sidebar-spec-label">Acreage</span><span class="sidebar-spec-value">2.038 Acres</span></div>
+                    <div><span class="sidebar-spec-label">Status</span><span class="sidebar-spec-value">Available</span></div>
+                    <div><span class="sidebar-spec-label">City</span><span class="sidebar-spec-value">Milton, GA</span></div>
+                    <div><span class="sidebar-spec-label">Delivery</span><span class="sidebar-spec-value">May 2027</span></div>
+                    <div><span class="sidebar-spec-label">Sq. Ft.</span><span class="sidebar-spec-value">9,758 SF</span></div>
+                    <div><span class="sidebar-spec-label">Bed / Bath</span><span class="sidebar-spec-value">6 / 9+2</span></div>
+                    <div><span class="sidebar-spec-label">Garage</span><span class="sidebar-spec-value">4-Car</span></div>
+                    <div><span class="sidebar-spec-label">Levels</span><span class="sidebar-spec-value">3 (M · U · B)</span></div>
+                </div>
+                <div>
+                    <div class="sidebar-included"><div class="inc-dot"></div>3-level estate plan</div>
+                    <div class="sidebar-included"><div class="inc-dot"></div>Pool &amp; 3-part rear grounds</div>
+                    <div class="sidebar-included"><div class="inc-dot"></div>Pre-construction selections available</div>
+                    <div class="sidebar-included"><div class="inc-dot"></div>Top-rated Milton schools</div>
+                </div>
+                <a href="contact.html" class="sidebar-cta">Inquire About This Home</a>
+                <a href="portfolio.html" class="sidebar-secondary-cta">← All Listings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── EXTERIOR GALLERY ── -->
+    <section class="gallery-section">
+        <span class="gallery-section-eyebrow">Photography</span>
+        <h2>Exterior &amp; Site</h2>
+        <div class="photo-grid-hero">
+            <div class="photo-grid-hero-main">
+                <img src="images/15152/rendering-1.jpg" alt="15152 Hopewell Road — Architectural Rendering">
+            </div>
+            <div class="photo-grid-hero-side" style="overflow:hidden;">
+                <img src="images/15152/front-2.jpg" alt="15152 Hopewell Road — Front Elevation" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="photo-grid-hero-side" style="overflow:hidden;">
+                <img src="images/15152/corner.jpg" alt="15152 Hopewell Road — Corner View" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+        </div>
+        <!-- Second row: renderings -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px;">
+            <div style="overflow:hidden;aspect-ratio:4/3;">
+                <img src="images/15152/rendering-2.jpg" alt="15152 Hopewell Road — Rendering" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:4/3;">
+                <img src="images/15152/rendering-3.jpg" alt="15152 Hopewell Road — Rendering" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:4/3;">
+                <img src="images/15152/rendering-4.jpg" alt="15152 Hopewell Road — Rendering" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+        </div>
+        <p class="gallery-note">Professional photography in progress. Contact us for current site walkthrough access.</p>
+    </section>
+
+    <!-- ── OUTDOOR LIVING: THREE REAR SPACES ── -->
+    <section class="outdoor-section">
+        <span class="outdoor-section-eyebrow">Outdoor Living</span>
+        <h2>The Rear Grounds</h2>
+        <p class="outdoor-intro">Three distinct outdoor environments cascade from the rear of the home, each designed with its own purpose, character, and level of privacy. From an intimate enclosed courtyard to a resort-quality pool terrace to a wide private backyard below — this is outdoor living at a level rarely offered in a single home.</p>
+        <div class="outdoor-spaces">
+
+            <!-- Space 1: Courtyard -->
+            <div class="outdoor-space">
+                <div style="width:100%;aspect-ratio:4/3;overflow:hidden;">
+                    <img src="images/15152/rear-1.jpg" alt="Rear Courtyard — 15152 Hopewell Road" class="outdoor-space-img">
+                </div>
+                <div class="outdoor-space-body">
+                    <span class="outdoor-space-num">Space 01</span>
+                    <span class="outdoor-space-title">The Courtyard</span>
+                    <p class="outdoor-space-desc">An intimate walled courtyard directly accessible from the main level creates a private transition from interior to exterior. Enclosed stone or masonry walls establish a sense of shelter and exclusivity — ideal for morning coffee, evening gatherings, or simply a moment apart from the larger grounds.</p>
+                    <ul class="outdoor-space-features">
+                        <li><div class="outdoor-feat-dot"></div>Direct main-level access from great room or kitchen</li>
+                        <li><div class="outdoor-feat-dot"></div>Walled enclosure for privacy and microclimate comfort</li>
+                        <li><div class="outdoor-feat-dot"></div>Outdoor kitchen or fireplace potential</li>
+                        <li><div class="outdoor-feat-dot"></div>Landscaped hardscape and garden design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Space 2: Pool -->
+            <div class="outdoor-space">
+                <div style="width:100%;aspect-ratio:4/3;overflow:hidden;">
+                    <img src="images/15152/rear-2.jpg" alt="Pool Terrace — 15152 Hopewell Road" class="outdoor-space-img">
+                </div>
+                <div class="outdoor-space-body">
+                    <span class="outdoor-space-num">Space 02</span>
+                    <span class="outdoor-space-title">The Pool Terrace</span>
+                    <p class="outdoor-space-desc">The centerpiece of the rear grounds. A resort-caliber pool terrace spreads across the primary outdoor level, designed for entertaining at full scale. Wide stone decking, lounge areas, and pool-adjacent covered living spaces blur the boundary between inside and out — a setting that commands both attention and relaxation.</p>
+                    <ul class="outdoor-space-features">
+                        <li><div class="outdoor-feat-dot"></div>Gunite pool with custom geometry</li>
+                        <li><div class="outdoor-feat-dot"></div>Expansive stone decking and seating terraces</li>
+                        <li><div class="outdoor-feat-dot"></div>Covered outdoor living with fireplace option</li>
+                        <li><div class="outdoor-feat-dot"></div>Pool house / cabana-ready layout</li>
+                        <li><div class="outdoor-feat-dot"></div>Landscape lighting throughout</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Space 3: Lower Backyard -->
+            <div class="outdoor-space">
+                <div style="width:100%;aspect-ratio:4/3;overflow:hidden;">
+                    <img src="images/15152/rear-1.jpg" alt="Lower Level Backyard — 15152 Hopewell Road" class="outdoor-space-img" style="object-position:bottom;">
+                </div>
+                <div class="outdoor-space-body">
+                    <span class="outdoor-space-num">Space 03</span>
+                    <span class="outdoor-space-title">Lower Level Backyard</span>
+                    <p class="outdoor-space-desc">Accessible directly from the walk-out basement level, the lower backyard offers a generous flat expanse that opens the property to its full 2.038-acre scale. Shaded, private, and removed from the activity of the terrace above — ideal for lawn games, recreation, a future sport court, or simply experiencing the depth and scale of the land.</p>
+                    <ul class="outdoor-space-features">
+                        <li><div class="outdoor-feat-dot"></div>Walk-out basement level access</li>
+                        <li><div class="outdoor-feat-dot"></div>Expansive graded lawn area</li>
+                        <li><div class="outdoor-feat-dot"></div>Wooded treeline border for natural privacy</li>
+                        <li><div class="outdoor-feat-dot"></div>Sport court or recreation area potential</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── FLOOR PLANS (3 LEVELS · ASHFORD STYLE) ── -->
+    <div class="visuals-section">
+        <div class="visuals-section-header">
+            <span class="visuals-section-header-eyebrow">Architecture &amp; Plans</span>
+            <h2>Floor Plans</h2>
+            <p>Three full levels designed by Goodman Design. Each floor plan is shown alongside its 3D isometric rendering — allowing you to understand space, flow, and volume before the home is complete.</p>
+        </div>
+
+        <!-- MAIN LEVEL -->
+        <div class="visual-block">
+            <div class="visual-block-header">
+                <h3>Main Level</h3>
+                <span class="visual-block-sqft">Primary entertaining &amp; owner's suite</span>
+            </div>
+            <div class="visual-row">
+                <div class="visual-cell">
+                    <span class="visual-cell-label">Floor Plan</span>
+                    <div class="fp-wrap">
+                        <img src="images/agent-portal/15152-main-floor.png" alt="15152 Hopewell Road — Main Level Floor Plan">
+                    </div>
+                </div>
+                <div class="visual-cell">
+                    <span class="visual-cell-label dark">3D Rendering</span>
+                    <div class="fp-wrap" style="background:#111; border-right:none;">
+                        <img src="images/agent-portal/15152-render-main.png" alt="15152 Hopewell Road — Main Level 3D Rendering">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- UPPER LEVEL -->
+        <div class="visual-block">
+            <div class="visual-block-header">
+                <h3>Upper Level</h3>
+                <span class="visual-block-sqft">Secondary bedrooms &amp; secondary living</span>
+            </div>
+            <div class="visual-row">
+                <div class="visual-cell">
+                    <span class="visual-cell-label">Floor Plan</span>
+                    <div class="fp-wrap">
+                        <img src="images/agent-portal/15152-upper-floor.png" alt="15152 Hopewell Road — Upper Level Floor Plan">
+                    </div>
+                </div>
+                <div class="visual-cell">
+                    <span class="visual-cell-label dark">3D Rendering</span>
+                    <div class="fp-wrap" style="background:#111; border-right:none;">
+                        <img src="images/agent-portal/15152-render-upper.png" alt="15152 Hopewell Road — Upper Level 3D Rendering">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BASEMENT LEVEL -->
+        <div class="visual-block">
+            <div class="visual-block-header">
+                <h3>Basement Level</h3>
+                <span class="visual-block-sqft">Entertainment · walk-out access to rear grounds</span>
+            </div>
+            <div class="visual-row">
+                <div class="visual-cell">
+                    <span class="visual-cell-label">Floor Plan</span>
+                    <div class="fp-wrap">
+                        <img src="images/agent-portal/15152-basement-floor.png" alt="15152 Hopewell Road — Basement Level Floor Plan">
+                    </div>
+                </div>
+                <div class="visual-cell">
+                    <span class="visual-cell-label dark">3D Rendering</span>
+                    <div class="fp-wrap" style="background:#111; border-right:none;">
+                        <img src="images/agent-portal/15152-render-basement.png" alt="15152 Hopewell Road — Basement Level 3D Rendering">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ── INTERIOR FEATURES ── -->
+    <section class="interior-features-section">
+        <span class="interior-features-section-eyebrow">Interior</span>
+        <h2>Signature Features</h2>
+        <div class="features-grid">
+
+            <div class="feature-block">
+                <svg class="feature-block-icon" viewBox="0 0 32 32" fill="none" stroke="rgba(184,149,106,0.8)" stroke-width="1.25"><rect x="4" y="8" width="24" height="18" rx="1"/><path d="M4 14h24"/><path d="M10 8V6h12v2"/></svg>
+                <span class="feature-block-title">Owner's Suite</span>
+                <p class="feature-block-desc">Main-level owner's retreat with private sitting room, his-and-hers walk-in closets with custom built-ins, and a spa bathroom featuring dual vanities, soaking tub, and an oversized steam shower. Direct access to the courtyard.</p>
+            </div>
+
+            <div class="feature-block">
+                <svg class="feature-block-icon" viewBox="0 0 32 32" fill="none" stroke="rgba(184,149,106,0.8)" stroke-width="1.25"><path d="M4 24V12l12-8 12 8v12"/><rect x="12" y="16" width="8" height="8"/><path d="M4 24h24"/></svg>
+                <span class="feature-block-title">Grand Entry &amp; Foyer</span>
+                <p class="feature-block-desc">Double-height entry foyer with sweeping staircase, stone flooring, and dramatic ceiling detail — the first statement in an uncompromising sequence of architectural moments. Formal dining and study flank the entry axis.</p>
+            </div>
+
+            <div class="feature-block">
+                <svg class="feature-block-icon" viewBox="0 0 32 32" fill="none" stroke="rgba(184,149,106,0.8)" stroke-width="1.25"><rect x="3" y="18" width="26" height="8" rx="1"/><path d="M6 18v-4a2 2 0 012-2h16a2 2 0 012 2v4"/><line x1="16" y1="12" x2="16" y2="6"/><circle cx="16" cy="5" r="1.5"/></svg>
+                <span class="feature-block-title">Chef's Kitchen &amp; Scullery</span>
+                <p class="feature-block-desc">Professional-grade kitchen with oversized island, Sub-Zero refrigeration, Wolf range, dual ovens, and an adjoining full scullery kitchen for entertaining. Custom cabinetry extends to the ceiling with integrated appliances throughout.</p>
+            </div>
+
+            <div class="feature-block">
+                <svg class="feature-block-icon" viewBox="0 0 32 32" fill="none" stroke="rgba(184,149,106,0.8)" stroke-width="1.25"><rect x="3" y="3" width="26" height="26" rx="2"/><path d="M3 13h26"/><path d="M13 13v16"/></svg>
+                <span class="feature-block-title">Great Room</span>
+                <p class="feature-block-desc">Voluminous great room with coffered ceiling, stone fireplace surround, and a full wall of sliding glass that erases the boundary between interior and the courtyard beyond. The natural heart of the main level.</p>
+            </div>
+
+            <div class="feature-block">
+                <svg class="feature-block-icon" viewBox="0 0 32 32" fill="none" stroke="rgba(184,149,106,0.8)" stroke-width="1.25"><rect x="4" y="4" width="10" height="10" rx="1"/><rect x="18" y="4" width="10" height="10" rx="1"/><rect x="4" y="18" width="10" height="10" rx="1"/><rect x="18" y="18" width="10" height="10" rx="1"/></svg>
+                <span class="feature-block-title">Bedroom Suites</span>
+                <p class="feature-block-desc">All six bedrooms feature private en-suite baths with premium stone and tile selections. A dedicated main-level guest suite with separate entry, three upper-level bedroom suites, and a junior primary upstairs ensure flexibility for every household configuration.</p>
+            </div>
+
+            <div class="feature-block">
+                <svg class="feature-block-icon" viewBox="0 0 32 32" fill="none" stroke="rgba(184,149,106,0.8)" stroke-width="1.25"><circle cx="16" cy="16" r="10"/><path d="M16 8v8l5 3"/></svg>
+                <span class="feature-block-title">Home Theater &amp; Basement</span>
+                <p class="feature-block-desc">The finished basement delivers a full entertainment level: dedicated home theater, wet bar and beverage center, recreation room, gym or flex space, and a full guest suite with private bath. Walk-out access leads directly to the lower backyard.</p>
+            </div>
+
+            <div class="feature-block">
+                <svg class="feature-block-icon" viewBox="0 0 32 32" fill="none" stroke="rgba(184,149,106,0.8)" stroke-width="1.25"><path d="M4 28 L16 4 L28 28"/><path d="M8 20h16"/></svg>
+                <span class="feature-block-title">Study &amp; Private Office</span>
+                <p class="feature-block-desc">A richly appointed main-level study with custom millwork, built-in shelving, and coffered ceiling. Designed for a principal who works at the scale they live — private, elevated, and removed from the activity of the home.</p>
+            </div>
+
+            <div class="feature-block">
+                <svg class="feature-block-icon" viewBox="0 0 32 32" fill="none" stroke="rgba(184,149,106,0.8)" stroke-width="1.25"><path d="M5 27L16 5l11 22"/><path d="M9 19h14"/><path d="M16 5v22"/></svg>
+                <span class="feature-block-title">Upper Loft &amp; Lounge</span>
+                <p class="feature-block-desc">A generous upper-level loft bridges the bedroom suites and serves as a secondary living hub — ideal as a media room, homework hub, or reading lounge. Overlooks the great room below, maintaining the visual grandeur of the double-height main space.</p>
+            </div>
+
+            <div class="feature-block">
+                <svg class="feature-block-icon" viewBox="0 0 32 32" fill="none" stroke="rgba(184,149,106,0.8)" stroke-width="1.25"><rect x="4" y="6" width="24" height="20" rx="2"/><path d="M4 12h24"/><path d="M9 12v14"/><path d="M23 12v14"/></svg>
+                <span class="feature-block-title">4-Car Garage</span>
+                <p class="feature-block-desc">An oversized four-car garage with side-entry and tandem configurations, premium flooring, built-in cabinetry, and pre-wired EV charging stations. A separate service entrance and direct interior access via a well-appointed mudroom.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── FINISHES & SPECIFICATIONS ── -->
+    <section class="finishes-band">
+        <span class="finishes-band-eyebrow">Craftsmanship</span>
+        <h2>Finishes &amp; Specifications</h2>
+        <p class="finishes-band-intro">Every selection in this home is made at the upper threshold of the market. From structural systems to decorative hardware, the standard at 15152 Hopewell is a product that not only performs beautifully on delivery day — but continues to appreciate as a physical asset for decades.</p>
+        <div class="finishes-grid">
+            <div class="finish-block">
+                <span class="finish-block-category">Structure &amp; Envelope</span>
+                <ul class="finish-block-list">
+                    <li>Spray foam insulation throughout</li>
+                    <li>Three-zone HVAC with Nest or equivalent smart controls</li>
+                    <li>Whole-home generator pre-wire</li>
+                    <li>Full masonry or premium fiber cement exterior</li>
+                    <li>Architectural dimensional roofing</li>
+                    <li>Poured concrete basement walls</li>
+                </ul>
+            </div>
+            <div class="finish-block">
+                <span class="finish-block-category">Kitchen &amp; Baths</span>
+                <ul class="finish-block-list">
+                    <li>Sub-Zero refrigeration series</li>
+                    <li>Wolf 6-burner range + double wall oven</li>
+                    <li>Custom cabinetry with soft-close hardware</li>
+                    <li>Natural stone countertops throughout</li>
+                    <li>Designer tile selections</li>
+                    <li>Unlacquered brass or polished nickel fixtures</li>
+                </ul>
+            </div>
+            <div class="finish-block">
+                <span class="finish-block-category">Interior Finishes</span>
+                <ul class="finish-block-list">
+                    <li>5" white oak engineered hardwood — main &amp; upper</li>
+                    <li>Solid-core 8' interior doors throughout</li>
+                    <li>Custom millwork, coffered &amp; beamed ceilings</li>
+                    <li>Designer lighting allowance</li>
+                    <li>Built-in closet systems in all bedrooms</li>
+                    <li>Linear fireplace — great room &amp; primary suite</li>
+                </ul>
+            </div>
+            <div class="finish-block">
+                <span class="finish-block-category">Technology &amp; Outdoor</span>
+                <ul class="finish-block-list">
+                    <li>Pre-wired for whole-home audio/video</li>
+                    <li>Structured wiring &amp; smart home infrastructure</li>
+                    <li>Security &amp; camera pre-wire</li>
+                    <li>EV charging in garage (2 positions)</li>
+                    <li>Professional landscape design</li>
+                    <li>Pool &amp; outdoor living rough-ins included</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DOWNLOADS ── -->
+    <section style="background:#0a0a0a; padding:5rem;">
+        <span style="font-size:0.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--bronze);display:block;margin-bottom:1rem;">Due Diligence</span>
+        <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:300;letter-spacing:4px;color:var(--white);margin-bottom:0.75rem;text-transform:uppercase;">Download Documents</h2>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);max-width:560px;line-height:1.8;margin-bottom:3rem;">Complete property documentation available for qualified buyers and their representatives.</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);">
+
+            <a href="docs/15152/highlights.pdf" download="15152-Hopewell-Highlights.pdf"
+               style="background:#0a0a0a;padding:2rem 1.75rem;text-decoration:none;display:block;transition:background 0.3s;"
+               onmouseover="this.style.background='#141414'" onmouseout="this.style.background='#0a0a0a'">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:1.25rem;opacity:0.45;">
+                    <rect x="5" y="2" width="18" height="24" rx="1.5" stroke="rgba(184,149,106,0.9)" stroke-width="1.5"/>
+                    <path d="M9 9h10M9 13h10M9 17h6" stroke="rgba(184,149,106,0.6)" stroke-width="1.25" stroke-linecap="round"/>
+                </svg>
+                <span style="font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--bronze);display:block;margin-bottom:0.5rem;">Property Overview</span>
+                <span style="font-family:var(--font-display);font-size:1rem;color:var(--white);display:block;margin-bottom:0.4rem;letter-spacing:1px;">Highlights</span>
+                <span style="font-size:0.7rem;color:rgba(255,255,255,0.25);">Full property highlights &amp; summary</span>
+            </a>
+
+            <a href="docs/15152/marketing-slides.pdf" download="15152-Hopewell-Marketing-Slides.pdf"
+               style="background:#0a0a0a;padding:2rem 1.75rem;text-decoration:none;display:block;transition:background 0.3s;"
+               onmouseover="this.style.background='#141414'" onmouseout="this.style.background='#0a0a0a'">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:1.25rem;opacity:0.45;">
+                    <rect x="3" y="5" width="22" height="16" rx="1.5" stroke="rgba(184,149,106,0.9)" stroke-width="1.5"/>
+                    <path d="M14 21v3M10 24h8" stroke="rgba(184,149,106,0.6)" stroke-width="1.25" stroke-linecap="round"/>
+                    <path d="M9 11l3 3 3-3 4 4" stroke="rgba(184,149,106,0.5)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span style="font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--bronze);display:block;margin-bottom:0.5rem;">Marketing</span>
+                <span style="font-family:var(--font-display);font-size:1rem;color:var(--white);display:block;margin-bottom:0.4rem;letter-spacing:1px;">Marketing Slides</span>
+                <span style="font-size:0.7rem;color:rgba(255,255,255,0.25);">Full presentation deck</span>
+            </a>
+
+            <a href="docs/15152/floor-plans.pdf" download="15152-Hopewell-Floor-Plans.pdf"
+               style="background:#0a0a0a;padding:2rem 1.75rem;text-decoration:none;display:block;transition:background 0.3s;"
+               onmouseover="this.style.background='#141414'" onmouseout="this.style.background='#0a0a0a'">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:1.25rem;opacity:0.45;">
+                    <rect x="3" y="3" width="22" height="22" rx="1.5" stroke="rgba(184,149,106,0.9)" stroke-width="1.5"/>
+                    <path d="M3 12h22M12 3v22" stroke="rgba(184,149,106,0.6)" stroke-width="1.25"/>
+                </svg>
+                <span style="font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--bronze);display:block;margin-bottom:0.5rem;">Architecture</span>
+                <span style="font-family:var(--font-display);font-size:1rem;color:var(--white);display:block;margin-bottom:0.4rem;letter-spacing:1px;">Floor Plans</span>
+                <span style="font-size:0.7rem;color:rgba(255,255,255,0.25);">All three levels — detailed plans</span>
+            </a>
+
+            <a href="docs/15152/site-plans.pdf" download="15152-Hopewell-Site-Plans.pdf"
+               style="background:#0a0a0a;padding:2rem 1.75rem;text-decoration:none;display:block;transition:background 0.3s;"
+               onmouseover="this.style.background='#141414'" onmouseout="this.style.background='#0a0a0a'">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:1.25rem;opacity:0.45;">
+                    <circle cx="14" cy="14" r="11" stroke="rgba(184,149,106,0.9)" stroke-width="1.5"/>
+                    <path d="M14 3v22M3 14h22" stroke="rgba(184,149,106,0.4)" stroke-width="1"/>
+                    <circle cx="14" cy="14" r="4" stroke="rgba(184,149,106,0.6)" stroke-width="1.25"/>
+                </svg>
+                <span style="font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--bronze);display:block;margin-bottom:0.5rem;">Civil</span>
+                <span style="font-family:var(--font-display);font-size:1rem;color:var(--white);display:block;margin-bottom:0.4rem;letter-spacing:1px;">Site Plans</span>
+                <span style="font-size:0.7rem;color:rgba(255,255,255,0.25);">Civil &amp; site engineering drawings</span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ── CONSTRUCTION TIMELINE ── -->
+    <section class="construction-section">
+        <span class="construction-section-eyebrow">Build Timeline</span>
+        <h2>Construction Progress</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot complete"></div>
+                <div>
+                    <span class="timeline-phase">Phase 1</span>
+                    <span class="timeline-date">Site &amp; Permits</span>
+                    <span class="timeline-note">Complete</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot active"></div>
+                <div>
+                    <span class="timeline-phase">Phase 2</span>
+                    <span class="timeline-date">Foundation &amp; Frame</span>
+                    <span class="timeline-note">In Progress</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                    <span class="timeline-phase">Phase 3</span>
+                    <span class="timeline-date">Mechanical &amp; Rough-In</span>
+                    <span class="timeline-note">Fall 2026</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                    <span class="timeline-phase">Phase 4</span>
+                    <span class="timeline-date">Finishes &amp; Trim</span>
+                    <span class="timeline-note">Winter 2026–27</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                    <span class="timeline-phase">Phase 5</span>
+                    <span class="timeline-date">Delivery</span>
+                    <span class="timeline-note">May 2027</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── LOCATION ── -->
+    <section class="location-section">
+        <span class="location-section-eyebrow">Location</span>
+        <h2>Milton, Georgia</h2>
+        <div class="location-grid">
+            <div>
+                <iframe
+                    class="map-embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.0!2d-84.3200!3d34.1400!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f57f6a14d6a2b1%3A0x0!2s15152+Hopewell+Rd%2C+Milton%2C+GA+30004!5e0!3m2!1sen!2sus!4v1"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="15152 Hopewell Road, Milton GA"
+                    style="min-height:360px;">
+                </iframe>
+            </div>
+            <div>
+                <span class="nearby-title">Location Highlights</span>
+                <ul class="nearby-list">
+                    <li><span class="nearby-name">Avalon, Alpharetta</span><span class="nearby-dist">~8 min</span></li>
+                    <li><span class="nearby-name">Downtown Alpharetta</span><span class="nearby-dist">~10 min</span></li>
+                    <li><span class="nearby-name">Halcyon, Forsyth</span><span class="nearby-dist">~12 min</span></li>
+                    <li><span class="nearby-name">GA-400</span><span class="nearby-dist">~5 min</span></li>
+                    <li><span class="nearby-name">Milton High School</span><span class="nearby-dist">Zoned (Top-Rated)</span></li>
+                    <li><span class="nearby-name">The Forum at Peachtree Pkwy</span><span class="nearby-dist">~7 min</span></li>
+                    <li><span class="nearby-name">Vickery Village</span><span class="nearby-dist">~10 min</span></li>
+                    <li><span class="nearby-name">Hartsfield-Jackson Airport</span><span class="nearby-dist">~45 min</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PREV / NEXT ── -->
+    <div class="listing-nav-bar">
+        <a href="portfolio.html" class="back-to-listings">All Listings</a>
+    </div>
+
+    <!-- ── CTA ── -->
+    <section class="interior-cta">
+        <h2>REQUEST A PRIVATE SHOWING</h2>
+        <p>15152 Hopewell Road is available exclusively through Trio Luxury Homes. We welcome qualified buyers and their representatives for a private site walk, plan review, and direct conversation with our team.</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-primary-custom">Contact Us</a>
+            <a href="portfolio.html" class="btn btn-primary-custom">View All Listings</a>
+        </div>
+    </section>
+
+    <div class="dark-footer-strip">
+        <p>&copy; 2025 Trio Luxury Homes. All rights reserved.</p>
+        <div class="social-icons-strip">
+            <a href="https://www.instagram.com/trioluxuryhomes/" target="_blank" rel="noopener" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://www.facebook.com/trioluxuryhomes" target="_blank" rel="noopener" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.youtube.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="YouTube"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://www.tiktok.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="TikTok"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

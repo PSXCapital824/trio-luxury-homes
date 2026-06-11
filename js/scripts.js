@@ -50,9 +50,7 @@ window.addEventListener('DOMContentLoaded', event => {
     if (filterButtons.length > 0 && portfolioItems.length > 0) {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
                 button.classList.add('active');
 
                 const filterValue = button.getAttribute('data-filter');
@@ -61,7 +59,9 @@ window.addEventListener('DOMContentLoaded', event => {
                     if (filterValue === 'all') {
                         item.style.display = 'block';
                     } else {
-                        if (item.getAttribute('data-category') === filterValue) {
+                        // Support space-separated multi-category (e.g. "sold custom-build")
+                        const categories = (item.getAttribute('data-category') || '').split(' ');
+                        if (categories.includes(filterValue)) {
                             item.style.display = 'block';
                         } else {
                             item.style.display = 'none';

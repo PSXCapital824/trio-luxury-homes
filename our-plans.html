@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trio Luxury Homes' curated collection of six buildable luxury home plans for North Atlanta — starting at $896,000.">
+    <title>Our Plans | Trio Luxury Homes</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+        /* ── PLAN CARDS ── */
+        .plans-section {
+            background: var(--charcoal);
+            padding: 0;
+        }
+        .plans-header {
+            padding: 72px 5rem 48px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+        .plans-header h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--white);
+            margin: 0;
+        }
+        .plans-header p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            max-width: 320px;
+            line-height: 1.7;
+            text-align: right;
+            margin: 0;
+        }
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.06);
+            padding: 0 0 1px;
+        }
+        .plan-card {
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s ease;
+        }
+        .plan-card:hover { background: #222; }
+        .plan-card-photo {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .plan-card:hover .plan-card-photo { transform: scale(1.04); }
+        .plan-card-photo-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        .plan-card-photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4));
+        }
+        .plan-card-body {
+            padding: 1.75rem 2rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .plan-card-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--white);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+        .plan-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .plan-spec {
+            display: flex;
+            flex-direction: column;
+        }
+        .plan-spec-label {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 2px;
+        }
+        .plan-spec-value {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+            font-family: var(--font-body);
+        }
+        .plan-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .plan-price {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--bronze);
+            letter-spacing: 1px;
+        }
+        .plan-price-label {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            display: block;
+            margin-bottom: 2px;
+        }
+        .plan-view-btn {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--bronze);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(184,149,106,0.35);
+            padding-bottom: 2px;
+            transition: all 0.3s;
+        }
+        .plan-card:hover .plan-view-btn {
+            color: var(--white);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        /* ── ALLOWANCES ── */
+        .allowances-section {
+            background: #F9F8F6;
+            padding: 100px 5rem;
+        }
+        .allowances-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+        }
+        .allowances-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--charcoal);
+            margin: 0;
+        }
+        .allowances-header p {
+            font-size: 0.85rem;
+            color: var(--slate);
+            max-width: 380px;
+            line-height: 1.8;
+            text-align: right;
+        }
+        .allowances-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--light-gray);
+            border: 1px solid var(--light-gray);
+            margin-bottom: 3rem;
+        }
+        .allowances-grid .allowance-card[style*="grid-column"] {
+            background: #FAFAF8;
+        }
+        .allowance-card {
+            background: #fff;
+            padding: 2rem 1.75rem;
+        }
+        .allowance-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .allowance-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #F5F5F5;
+            gap: 1rem;
+        }
+        .allowance-item:last-child { border-bottom: none; }
+        .allowance-item-label {
+            font-size: 0.8rem;
+            color: var(--slate);
+            line-height: 1.4;
+        }
+        .allowance-item-value {
+            font-size: 0.8rem;
+            color: var(--bronze);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .allowances-note {
+            background: var(--charcoal);
+            padding: 1.5rem 2rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.75;
+        }
+
+        /* ── INCLUDED ACCORDION ── */
+        .included-acc { border-top: 1px solid rgba(255,255,255,0.08); }
+        .included-acc-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .included-acc-trigger {
+            width: 100%; background: none; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1.25rem 0; text-align: left;
+        }
+        .included-acc-left { display: flex; align-items: center; gap: 0.75rem; }
+        .included-acc-category {
+            font-family: var(--font-display);
+            font-size: 0.88rem; font-weight: 400;
+            letter-spacing: 2px; color: var(--white);
+            text-transform: uppercase;
+        }
+        .included-acc-count { font-size: 0.65rem; color: rgba(255,255,255,0.28); letter-spacing: 1px; }
+        .included-acc-chevron {
+            width: 14px; height: 14px; flex-shrink: 0;
+            color: rgba(255,255,255,0.25);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .included-acc-item.open .included-acc-chevron { transform: rotate(180deg); color: var(--bronze); }
+        .included-acc-panel { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+        .included-acc-item.open .included-acc-panel { max-height: 1200px; }
+        .included-acc-inner {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1px; background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 1px;
+        }
+        .included-acc-cell {
+            background: #1A1A1A; padding: 1.25rem 1.5rem;
+            display: flex; gap: 1rem; align-items: flex-start;
+        }
+        .included-acc-dot {
+            width: 5px; height: 5px; background: var(--bronze);
+            border-radius: 50%; flex-shrink: 0; margin-top: 6px;
+        }
+        .included-acc-title {
+            font-family: var(--font-display);
+            font-size: 0.85rem; font-weight: 400;
+            letter-spacing: 0.5px; color: var(--white);
+            margin-bottom: 0.2rem; display: block;
+        }
+        .included-acc-desc { font-size: 0.7rem; color: rgba(255,255,255,0.38); line-height: 1.6; margin: 0; }
+
+        /* ── PERSONALIZE ── */
+        .personalize-section { background: #F9F8F6; padding: 100px 5rem; }
+        .personalize-header {
+            display: flex; align-items: flex-end;
+            justify-content: space-between; margin-bottom: 3rem;
+        }
+        .personalize-header h2 {
+            font-family: var(--font-display); font-size: 2.5rem;
+            font-weight: 300; letter-spacing: 3px; color: var(--charcoal); margin: 0;
+        }
+        .personalize-header p { font-size: 0.85rem; color: var(--slate); max-width: 380px; line-height: 1.8; text-align: right; }
+        .personalize-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1px; background: var(--light-gray);
+            border: 1px solid var(--light-gray); margin-bottom: 0;
+        }
+        .personalize-card { background: #fff; padding: 1.75rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
+        .personalize-card-label { font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--bronze); display: block; }
+        .personalize-card-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 400; letter-spacing: 1px; color: var(--charcoal); display: block; }
+        .personalize-card-note { font-size: 0.72rem; color: var(--slate); line-height: 1.6; margin: 0; }
+        .personalize-cta {
+            background: var(--charcoal); padding: 1.75rem 2rem;
+            display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+        }
+        .personalize-cta p { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.75; margin: 0; max-width: 620px; }
+        .personalize-cta a {
+            display: inline-block; padding: 0.75rem 2rem;
+            border: 1px solid var(--bronze); color: var(--bronze);
+            font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+            text-decoration: none; white-space: nowrap;
+            transition: background 0.2s, color 0.2s;
+        }
+        .personalize-cta a:hover { background: var(--bronze); color: var(--white); }
+
+        /* ── UPGRADES ── */
+        .upgrades-section {
+            background: #111;
+            padding: 100px 5rem;
+        }
+        .upgrades-header {
+            margin-bottom: 3rem;
+        }
+        .upgrades-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .upgrades-header p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            max-width: 540px;
+            line-height: 1.8;
+        }
+        .upgrades-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: rgba(255,255,255,0.06);
+        }
+        .upgrade-row {
+            background: #111;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1.5rem;
+            transition: background 0.2s;
+        }
+        .upgrade-row:hover { background: #181818; }
+        .upgrade-row-left { flex: 1; }
+        .upgrade-num {
+            font-family: var(--font-display);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--bronze);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .upgrade-row h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+        .upgrade-row p {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            margin: 0;
+            line-height: 1.6;
+        }
+        .upgrade-price {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--bronze);
+            white-space: nowrap;
+            padding-top: 1.25rem;
+        }
+        .upgrade-price-note {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.3);
+            display: block;
+            text-align: right;
+            margin-top: 2px;
+        }
+
+        /* ── CALCULATOR ── */
+        .calculator-section {
+            background: var(--charcoal);
+            padding: 100px 5rem;
+        }
+        .calc-header {
+            margin-bottom: 4rem;
+        }
+        .calc-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .calc-header p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.8;
+            max-width: 560px;
+        }
+        .calc-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 3rem;
+            align-items: start;
+        }
+        .calc-steps { }
+        .calc-step {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .calc-step:last-child { border-bottom: none; margin-bottom: 0; }
+        .calc-step-label {
+            font-size: 0.62rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--bronze);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .calc-step h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--white);
+            margin-bottom: 1.25rem;
+        }
+        /* Plan selector buttons */
+        .plan-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.07);
+        }
+        .plan-btn {
+            background: #1e1e1e;
+            border: none;
+            padding: 1.25rem 1rem;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.2s;
+            position: relative;
+        }
+        .plan-btn:hover { background: #252525; }
+        .plan-btn.active {
+            background: #2a2318;
+            border-bottom: 2px solid var(--bronze);
+        }
+        .plan-btn-name {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--white);
+            display: block;
+            margin-bottom: 3px;
+        }
+        .plan-btn-sqft {
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.35);
+            display: block;
+        }
+        /* Upgrades checklist */
+        .upgrade-checks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: rgba(255,255,255,0.06);
+        }
+        .upgrade-check {
+            background: #1e1e1e;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            user-select: none;
+        }
+        .upgrade-check:hover { background: #242424; }
+        .upgrade-check.checked { background: #1f1c17; }
+        .upgrade-check input[type=checkbox] {
+            width: 16px; height: 16px;
+            accent-color: var(--bronze);
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .upgrade-check-label { flex: 1; }
+        .upgrade-check-name {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.75);
+            display: block;
+        }
+        .upgrade-check-price {
+            font-size: 0.7rem;
+            color: var(--bronze);
+            display: block;
+            margin-top: 1px;
+        }
+        /* Land cost */
+        .land-input-wrap {
+            position: relative;
+            max-width: 360px;
+        }
+        .land-prefix {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.4);
+            pointer-events: none;
+        }
+        .land-input {
+            width: 100%;
+            background: #1e1e1e;
+            border: 1px solid rgba(255,255,255,0.12);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            padding: 0.875rem 1rem 0.875rem 1.75rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .land-input:focus { border-color: var(--bronze); }
+        .land-notes {
+            margin-top: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .land-note {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            padding-left: 0.75rem;
+            border-left: 2px solid rgba(184,149,106,0.35);
+            line-height: 1.5;
+        }
+        .land-note strong { color: rgba(255,255,255,0.65); font-weight: 500; }
+
+        /* Summary panel */
+        .calc-summary {
+            background: #111;
+            padding: 2.5rem 2rem;
+            position: sticky;
+            top: 100px;
+        }
+        .calc-summary h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--white);
+            margin-bottom: 0.35rem;
+        }
+        .calc-summary-sub {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--bronze);
+            display: block;
+            margin-bottom: 2rem;
+        }
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            gap: 1rem;
+        }
+        .summary-line:last-of-type { border-bottom: none; }
+        .summary-line-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.4;
+        }
+        .summary-line-value {
+            font-size: 0.85rem;
+            color: var(--white);
+            white-space: nowrap;
+        }
+        .summary-line-value.muted { color: rgba(255,255,255,0.3); font-style: italic; }
+        .summary-divider {
+            height: 1px;
+            background: rgba(184,149,106,0.35);
+            margin: 1.25rem 0;
+        }
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.75rem;
+        }
+        .summary-total-label {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: var(--white);
+        }
+        .summary-total-value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--bronze);
+        }
+        .summary-disclaimer {
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.25);
+            line-height: 1.65;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+        .summary-cta {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: transparent;
+            border: 1.5px solid var(--bronze);
+            color: var(--bronze);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+        }
+        .summary-cta:hover { background: var(--bronze); color: var(--white); }
+        .summary-included {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 0;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.4);
+        }
+        .summary-included-dot {
+            width: 6px; height: 6px;
+            background: #4caf50;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 991px) {
+            .plans-grid { grid-template-columns: 1fr 1fr; }
+            .plans-header, .allowances-header { flex-direction: column; gap: 1rem; }
+            .plans-header p, .allowances-header p { text-align: left; }
+            .allowances-grid { grid-template-columns: 1fr; }
+            .allowances-section, .upgrades-section, .calculator-section { padding: 60px 2rem; }
+            .upgrades-grid { grid-template-columns: 1fr; }
+            .calc-layout { grid-template-columns: 1fr; }
+            .calc-summary { position: static; }
+            .plan-selector { grid-template-columns: repeat(2, 1fr); }
+            .upgrade-checks { grid-template-columns: 1fr; }
+            .plans-header { padding: 3rem 2rem 2rem; }
+            .included-acc-inner { grid-template-columns: 1fr; }
+            .personalize-header { flex-direction: column; gap: 1rem; }
+            .personalize-header p { text-align: left; }
+            .personalize-grid { grid-template-columns: 1fr 1fr; }
+            .personalize-section { padding: 60px 2rem; }
+            .personalize-cta { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="social-links">
+        <a href="https://www.instagram.com/trioluxuryhomes/" target="_blank" rel="noopener" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.facebook.com/trioluxuryhomes" target="_blank" rel="noopener" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.youtube.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="YouTube"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://www.tiktok.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="TikTok"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container-fluid px-4 px-lg-5 justify-content-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">How We Build</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="our-plans.html">Our Plans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Current Listings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="invest.html">Invest</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero" style="background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.68)), url('images/portfolio/home4.jpg') center/cover;">
+        <div class="page-hero-content">
+            <span class="page-hero-eyebrow">Six Buildable Plans</span>
+            <h1>OUR PLANS</h1>
+        </div>
+    </section>
+
+    <!-- Plans Grid -->
+    <section class="plans-section">
+        <div class="plans-header">
+            <div>
+                <h2>CURATED FOR NORTH ATLANTA LIVING</h2>
+            </div>
+            <p>Each plan is a refined starting point — customizable to your lot, lifestyle, and vision. Not mass-market. Not a catalog. Boutique by design.</p>
+        </div>
+        <div class="plans-grid">
+
+            <div class="plan-card" style="cursor:default;">
+                <div class="plan-card-photo-wrap">
+                    <img src="images/portfolio/coming-soon.jpg" alt="The Timberland" class="plan-card-photo">
+                    <div class="plan-card-photo-overlay"></div>
+                </div>
+                <div class="plan-card-body">
+                    <span class="plan-card-name">The Timberland</span>
+                    <div class="plan-specs">
+                        <div class="plan-spec"><span class="plan-spec-label">Sq. Ft.</span><span class="plan-spec-value">3,200</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Width</span><span class="plan-spec-value">50 ft</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Bedrooms</span><span class="plan-spec-value">4 Bed / 3.5 Bath</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Garage</span><span class="plan-spec-value">2-Car</span></div>
+                    </div>
+                    <div class="plan-card-footer">
+                        <div><span class="plan-price-label">Starting At</span><span class="plan-price">$896,000</span></div>
+                        <span class="plan-view-btn" style="color:rgba(255,255,255,0.3); letter-spacing:2px;">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="plan-crestview.html" class="plan-card">
+                <div class="plan-card-photo-wrap">
+                    <img src="images/crestview/front.png" alt="The Crestview" class="plan-card-photo">
+                    <div class="plan-card-photo-overlay"></div>
+                </div>
+                <div class="plan-card-body">
+                    <span class="plan-card-name">The Crestview</span>
+                    <div class="plan-specs">
+                        <div class="plan-spec"><span class="plan-spec-label">Sq. Ft.</span><span class="plan-spec-value">3,696</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Width</span><span class="plan-spec-value">61 ft</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Bedrooms</span><span class="plan-spec-value">3 Bed / 4.5 Bath</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Garage</span><span class="plan-spec-value">3-Car</span></div>
+                    </div>
+                    <div class="plan-card-footer">
+                        <div><span class="plan-price-label">Starting At</span><span class="plan-price">$1,003,520</span></div>
+                        <span class="plan-view-btn">View Plan →</span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="plan-card" style="cursor:default;">
+                <div class="plan-card-photo-wrap">
+                    <img src="images/portfolio/coming-soon.jpg" alt="The Stonebrook" class="plan-card-photo">
+                    <div class="plan-card-photo-overlay"></div>
+                </div>
+                <div class="plan-card-body">
+                    <span class="plan-card-name">The Stonebrook</span>
+                    <div class="plan-specs">
+                        <div class="plan-spec"><span class="plan-spec-label">Sq. Ft.</span><span class="plan-spec-value">4,014</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Width</span><span class="plan-spec-value">59 ft</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Bedrooms</span><span class="plan-spec-value">5 Bed / 4.5 Bath</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Garage</span><span class="plan-spec-value">3-Car</span></div>
+                    </div>
+                    <div class="plan-card-footer">
+                        <div><span class="plan-price-label">Starting At</span><span class="plan-price">$1,123,920</span></div>
+                        <span class="plan-view-btn" style="color:rgba(255,255,255,0.3); letter-spacing:2px;">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="plan-ashford.html" class="plan-card">
+                <div class="plan-card-photo-wrap">
+                    <img src="images/portfolio/ashford-exterior.jpg" alt="The Ashford" class="plan-card-photo">
+                    <div class="plan-card-photo-overlay"></div>
+                </div>
+                <div class="plan-card-body">
+                    <span class="plan-card-name">The Ashford</span>
+                    <div class="plan-specs">
+                        <div class="plan-spec"><span class="plan-spec-label">Sq. Ft.</span><span class="plan-spec-value">4,500</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Width</span><span class="plan-spec-value">75 ft</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Bedrooms</span><span class="plan-spec-value">5 Bed / 5 Bath</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Garage</span><span class="plan-spec-value">3-Car</span></div>
+                    </div>
+                    <div class="plan-card-footer">
+                        <div><span class="plan-price-label">Starting At</span><span class="plan-price">$1,258,880</span></div>
+                        <span class="plan-view-btn">View Plan →</span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="plan-card" style="cursor:default;">
+                <div class="plan-card-photo-wrap">
+                    <img src="images/portfolio/coming-soon.jpg" alt="The Bellmont" class="plan-card-photo">
+                    <div class="plan-card-photo-overlay"></div>
+                </div>
+                <div class="plan-card-body">
+                    <span class="plan-card-name">The Bellmont</span>
+                    <div class="plan-specs">
+                        <div class="plan-spec"><span class="plan-spec-label">Sq. Ft.</span><span class="plan-spec-value">5,036</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Width</span><span class="plan-spec-value">69 ft</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Bedrooms</span><span class="plan-spec-value">6 Bed / 5.5 Bath</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Garage</span><span class="plan-spec-value">3-Car</span></div>
+                    </div>
+                    <div class="plan-card-footer">
+                        <div><span class="plan-price-label">Starting At</span><span class="plan-price">$1,410,080</span></div>
+                        <span class="plan-view-btn" style="color:rgba(255,255,255,0.3); letter-spacing:2px;">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plan-card" style="cursor:default;">
+                <div class="plan-card-photo-wrap">
+                    <img src="images/portfolio/coming-soon.jpg" alt="The Everly" class="plan-card-photo">
+                    <div class="plan-card-photo-overlay"></div>
+                </div>
+                <div class="plan-card-body">
+                    <span class="plan-card-name">The Everly</span>
+                    <div class="plan-specs">
+                        <div class="plan-spec"><span class="plan-spec-label">Sq. Ft.</span><span class="plan-spec-value">5,640</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Width</span><span class="plan-spec-value">75 ft</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Bedrooms</span><span class="plan-spec-value">6 Bed / 6.5 Bath</span></div>
+                        <div class="plan-spec"><span class="plan-spec-label">Garage</span><span class="plan-spec-value">3-Car</span></div>
+                    </div>
+                    <div class="plan-card-footer">
+                        <div><span class="plan-price-label">Starting At</span><span class="plan-price">$1,579,200</span></div>
+                        <span class="plan-view-btn" style="color:rgba(255,255,255,0.3); letter-spacing:2px;">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section style="background: var(--charcoal); padding: 100px 5rem;">
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:3rem;">
+            <div>
+                <p style="font-size:0.65rem; letter-spacing:4px; text-transform:uppercase; color:var(--bronze); margin-bottom:0.75rem;">Standard With Every Trio Home</p>
+                <h2 style="font-family:var(--font-display); font-size:2.5rem; font-weight:300; letter-spacing:3px; color:var(--white); margin:0;">WHAT'S INCLUDED</h2>
+            </div>
+            <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); max-width:380px; line-height:1.8; text-align:right;">Every plan ships with these finishes and features as standard — no negotiating, no surprises.</p>
+        </div>
+        <div class="included-acc">
+
+            <div class="included-acc-item open">
+                <button class="included-acc-trigger" aria-expanded="true">
+                    <div class="included-acc-left">
+                        <span class="included-acc-category">Structural &amp; Mechanical</span>
+                        <span class="included-acc-count">4 features</span>
+                    </div>
+                    <svg class="included-acc-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 6 8 10 12 6"/></svg>
+                </button>
+                <div class="included-acc-panel">
+                    <div class="included-acc-inner">
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">10 ft Ceilings — Main &amp; Upper Level</span><p class="included-acc-desc">10 ft ceilings on both floors as standard — a clear step above production-builder height.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Spray Foam Insulation — Attic</span><p class="included-acc-desc">Closed-cell spray foam in the attic for superior thermal performance and reduced energy costs.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Tankless Water Heater</span><p class="included-acc-desc">On-demand hot water throughout — no tank, no wait, lower energy use.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Architectural Shingles</span><p class="included-acc-desc">Dimensional architectural shingles standard — longer lifespan and better curb appeal than 3-tab.</p></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="included-acc-item">
+                <button class="included-acc-trigger" aria-expanded="false">
+                    <div class="included-acc-left">
+                        <span class="included-acc-category">Interior Finishes</span>
+                        <span class="included-acc-count">7 features</span>
+                    </div>
+                    <svg class="included-acc-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 6 8 10 12 6"/></svg>
+                </button>
+                <div class="included-acc-panel">
+                    <div class="included-acc-inner">
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Hardwood &amp; Tile Throughout</span><p class="included-acc-desc">Engineered hardwood and tile across all living areas — no carpet standard.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Quartz Countertops &amp; Tile Backsplash</span><p class="included-acc-desc">Quartz countertops in the kitchen paired with a full tile backsplash.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Slim Shaker Cabinets — Kitchen, Baths &amp; Laundry</span><p class="included-acc-desc">Slim shaker profile throughout. Upgrade to modern flat-front frameless available — see upgrades below.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Frameless Glass Shower Doors — All Baths</span><p class="included-acc-desc">No tub/shower combos. Every bathroom includes frameless glass shower enclosures.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Semi-Solid Core Interior Doors</span><p class="included-acc-desc">Semi-solid core doors throughout — better sound dampening and a more substantial feel than hollow-core standard.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Soft-Close Hinges &amp; Drawers Throughout</span><p class="included-acc-desc">Every cabinet door and drawer in the home is fitted with soft-close hardware as standard.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">LED Recessed Lighting Throughout</span><p class="included-acc-desc">Full LED recessed lighting package across all rooms — energy efficient and professionally placed.</p></div></div>
+                        <div class="included-acc-cell" style="background:#1A1A1A;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="included-acc-item">
+                <button class="included-acc-trigger" aria-expanded="false">
+                    <div class="included-acc-left">
+                        <span class="included-acc-category">Exterior &amp; Outdoor</span>
+                        <span class="included-acc-count">6 features</span>
+                    </div>
+                    <svg class="included-acc-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 6 8 10 12 6"/></svg>
+                </button>
+                <div class="included-acc-panel">
+                    <div class="included-acc-inner">
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Black-Frame Windows &amp; Exterior Doors</span><p class="included-acc-desc">Large-format tempered glass windows with black aluminum frames inside and out — standard across all plans. Matched by high-end black exterior doors for a cohesive, architectural look.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Exterior — Painted Brick Front, Premium Siding</span><p class="included-acc-desc">Painted brick on the front elevation. Remaining exterior finished in high-quality siding.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Smart Garage Door Openers &amp; EV Outlet</span><p class="included-acc-desc">Wi-Fi enabled openers with built-in camera on every bay, plus a dedicated EV charging outlet in the garage — both standard.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Tiled Front Patio</span><p class="included-acc-desc">Front entry patio finished in tile as standard.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Sod &amp; Driveway — Included</span><p class="included-acc-desc">15 pallets of sod and a 600 sq ft concrete driveway pour included with every plan.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">2 Electric Fireplaces Included</span><p class="included-acc-desc">One electric fireplace in the living room and one in the loft area — both standard.</p></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="included-acc-item">
+                <button class="included-acc-trigger" aria-expanded="false">
+                    <div class="included-acc-left">
+                        <span class="included-acc-category">Warranty &amp; Protection</span>
+                        <span class="included-acc-count">2 features</span>
+                    </div>
+                    <svg class="included-acc-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 6 8 10 12 6"/></svg>
+                </button>
+                <div class="included-acc-panel">
+                    <div class="included-acc-inner">
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">2-10 Home Warranty — Builder &amp; 3rd Party</span><p class="included-acc-desc">First year covered by Trio. Years 2–10 backed by a third-party 2-10 Home Buyers Warranty for structural and systems coverage.</p></div></div>
+                        <div class="included-acc-cell"><div class="included-acc-dot"></div><div><span class="included-acc-title">Termite Treatment — First Year Included</span><p class="included-acc-desc">Full termite treatment covered for the first year by Trio. After closing, buyers may elect to continue coverage through our preferred provider.</p></div></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Make It Yours -->
+    <section class="personalize-section">
+        <div class="personalize-header">
+            <div>
+                <p style="font-size:0.65rem; letter-spacing:4px; text-transform:uppercase; color:var(--bronze); margin-bottom:0.75rem;">Included With Every Plan</p>
+                <h2>MAKE IT YOURS</h2>
+            </div>
+            <p>Every Trio home includes allowances so you can personalize the finishes that matter most to you. The choices are yours — or leave it to us.</p>
+        </div>
+        <div class="personalize-grid">
+
+            <div class="personalize-card">
+                <span class="personalize-card-label">Flooring</span>
+                <span class="personalize-card-title">Tile</span>
+                <p class="personalize-card-note">Choose your tile for bathrooms and common areas — from our curated selection of styles and finishes.</p>
+            </div>
+
+            <div class="personalize-card">
+                <span class="personalize-card-label">Kitchen</span>
+                <span class="personalize-card-title">Backsplash</span>
+                <p class="personalize-card-note">Select your kitchen backsplash tile from a wide range of materials, patterns, and profiles.</p>
+            </div>
+
+            <div class="personalize-card">
+                <span class="personalize-card-label">Surfaces</span>
+                <span class="personalize-card-title">Countertops</span>
+                <p class="personalize-card-note">Kitchen and bathroom countertops — choose from quartz, stone, and other premium surface options.</p>
+            </div>
+
+            <div class="personalize-card">
+                <span class="personalize-card-label">Flooring</span>
+                <span class="personalize-card-title">Engineered Hardwood</span>
+                <p class="personalize-card-note">Select the stain, species, and plank width for your hardwood floors throughout the home.</p>
+            </div>
+
+            <div class="personalize-card">
+                <span class="personalize-card-label">Interior</span>
+                <span class="personalize-card-title">Paint &amp; Wall Colors</span>
+                <p class="personalize-card-note">Choose your colors for every room — or we'll provide a turnkey palette that's move-in ready.</p>
+            </div>
+
+            <div class="personalize-card">
+                <span class="personalize-card-label">Lighting</span>
+                <span class="personalize-card-title">Lighting Package</span>
+                <p class="personalize-card-note">Select your fixture finishes and styles for pendants, ceiling fans, and accent lighting throughout.</p>
+            </div>
+
+            <div class="personalize-card">
+                <span class="personalize-card-label">Entry</span>
+                <span class="personalize-card-title">Front Door</span>
+                <p class="personalize-card-note">Choose the style, color, and hardware finish for your front door — the first impression of your home.</p>
+            </div>
+
+            <div class="personalize-card">
+                <span class="personalize-card-label">Kitchen</span>
+                <span class="personalize-card-title">Appliance Package</span>
+                <p class="personalize-card-note">Select your appliances — cooktop, oven, dishwasher, and range hood — from our included package allowance.</p>
+            </div>
+
+        </div>
+        <div class="personalize-cta">
+            <p>Your complete selection guide — including all allowance details and our curated finish options — is shared once you're under contract. You're in good hands either way.</p>
+            <a href="contact.html">Get In Touch &#8594;</a>
+        </div>
+    </section>
+
+    <!-- Upgrades -->
+    <section class="upgrades-section" id="upgrades">
+        <div class="upgrades-header">
+            <p style="font-size:0.65rem; letter-spacing:4px; text-transform:uppercase; color:var(--bronze); margin-bottom:0.75rem;">Optional Add-Ons</p>
+            <h2>AVAILABLE UPGRADES</h2>
+            <p>These are the most requested upgrades across our plans. All pricing is approximate and subject to final scope. Use the cost calculator below to include them in your estimate.</p>
+        </div>
+        <div class="upgrades-grid">
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">01</span>
+                    <h4>Custom Staircase</h4>
+                    <p>Floating staircase with upgraded iron balusters, hardwood treads, and a custom newel post in place of standard builder stair package.</p>
+                </div>
+                <div><div class="upgrade-price">$22,000</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">02</span>
+                    <h4>All Interior Railing Glass</h4>
+                    <p>Full glass panel railing throughout all interior stair and loft areas in place of standard baluster package.</p>
+                </div>
+                <div><div class="upgrade-price">$13,000</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">03</span>
+                    <h4>Outdoor Kitchen</h4>
+                    <p>Covered patio build-out with stone grill surround, sink, bottle cooler, and 12 ft of countertop.</p>
+                </div>
+                <div><div class="upgrade-price">$14,750</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">04</span>
+                    <h4>Swimming Pool</h4>
+                    <p>16×32 ft gunite pool with integrated 8×8 ft jacuzzi (2 jets), coping, tile waterline, and concrete decking.</p>
+                </div>
+                <div><div class="upgrade-price">$142,000</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">05</span>
+                    <h4>Smart Home Package</h4>
+                    <p>Whole-home automation including lighting control, smart thermostat integration, security cameras, pre-wire for AV, and CAT6 ethernet drops pre-wired in all bedrooms.</p>
+                </div>
+                <div><div class="upgrade-price">$11,500</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">06</span>
+                    <h4>Security Camera Pre-Wire</h4>
+                    <p>Pre-wired for 6 exterior security cameras.</p>
+                </div>
+                <div><div class="upgrade-price">$3,000</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">07</span>
+                    <h4>Herringbone Hardwood Floors</h4>
+                    <p>Engineered hardwood in a herringbone pattern in the living room (~400 sq ft) and master bedroom (~300 sq ft).</p>
+                </div>
+                <div><div class="upgrade-price">$7,500</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">08</span>
+                    <h4>Painted Brick Exterior Package</h4>
+                    <p>Full painted brick on all exterior sides of the home and the back first floor.</p>
+                </div>
+                <div><div class="upgrade-price">$42,500</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">09</span>
+                    <h4>Upgraded Cabinets — Whole House</h4>
+                    <p>Flat-front frameless European-style cabinets with full overlay — no visible face frame. Choose an integrated J-pull (handle below) or push-to-open soft-close. Applied to kitchen, all bathrooms, and laundry.</p>
+                </div>
+                <div><div class="upgrade-price">$24,000</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">10</span>
+                    <h4>Garage Epoxy Floor Finish</h4>
+                    <p>Full epoxy floor coating across the entire garage — durable, easy to clean, and finished to a high-gloss surface.</p>
+                </div>
+                <div><div class="upgrade-price">$1,750</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">11</span>
+                    <h4>Hot Water Recirculation System</h4>
+                    <p>Whole-home recirculation pump delivers instant hot water to every fixture — no more waiting at the tap.</p>
+                </div>
+                <div><div class="upgrade-price">$4,500</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+            <div class="upgrade-row">
+                <div class="upgrade-row-left">
+                    <span class="upgrade-num">12</span>
+                    <h4>Sprinkler System — 3 Zones</h4>
+                    <p>In-ground irrigation system covering up to 10,000 sq ft of grass across 3 zones with programmable timer.</p>
+                </div>
+                <div><div class="upgrade-price">$6,500</div><span class="upgrade-price-note">est.</span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Cost Calculator -->
+    <section class="calculator-section" id="calculator">
+        <div class="calc-header">
+            <p style="font-size:0.65rem; letter-spacing:4px; text-transform:uppercase; color:var(--bronze); margin-bottom:0.75rem;">Estimate Your Investment</p>
+            <h2>COST CALCULATOR</h2>
+            <p>Select a plan, choose any upgrades you're considering, and enter your land cost to get a full picture of what your project could look like. Estimates are based on $280/sq. ft. for the build.</p>
+        </div>
+        <div class="calc-layout">
+
+            <!-- Steps -->
+            <div class="calc-steps">
+
+                <!-- Step 1: Plan -->
+                <div class="calc-step">
+                    <span class="calc-step-label">Step 01</span>
+                    <h3>Choose Your Plan</h3>
+                    <div class="plan-selector" id="planSelector">
+                        <button class="plan-btn active" data-sqft="3200" data-price="896000" data-name="The Timberland" onclick="selectPlan(this)">
+                            <span class="plan-btn-name">The Timberland</span>
+                            <span class="plan-btn-sqft">3,200 sf · $896,000</span>
+                        </button>
+                        <button class="plan-btn" data-sqft="3696" data-price="1003520" data-name="The Crestview" onclick="selectPlan(this)">
+                            <span class="plan-btn-name">The Crestview</span>
+                            <span class="plan-btn-sqft">3,696 sf · $1,003,520</span>
+                        </button>
+                        <button class="plan-btn" data-sqft="4014" data-price="1123920" data-name="The Stonebrook" onclick="selectPlan(this)">
+                            <span class="plan-btn-name">The Stonebrook</span>
+                            <span class="plan-btn-sqft">4,014 sf · $1,123,920</span>
+                        </button>
+                        <button class="plan-btn" data-sqft="4500" data-price="1258880" data-name="The Ashford" onclick="selectPlan(this)">
+                            <span class="plan-btn-name">The Ashford</span>
+                            <span class="plan-btn-sqft">4,500 sf · $1,258,880</span>
+                        </button>
+                        <button class="plan-btn" data-sqft="5036" data-price="1410080" data-name="The Bellmont" onclick="selectPlan(this)">
+                            <span class="plan-btn-name">The Bellmont</span>
+                            <span class="plan-btn-sqft">5,036 sf · $1,410,080</span>
+                        </button>
+                        <button class="plan-btn" data-sqft="5640" data-price="1579200" data-name="The Everly" onclick="selectPlan(this)">
+                            <span class="plan-btn-name">The Everly</span>
+                            <span class="plan-btn-sqft">5,640 sf · $1,579,200</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Upgrades -->
+                <div class="calc-step">
+                    <span class="calc-step-label">Step 02</span>
+                    <h3>Select Upgrades <span style="font-family:var(--font-body); font-size:0.75rem; color:rgba(255,255,255,0.35); letter-spacing:0; font-weight:400;">(optional)</span></h3>
+                    <div class="upgrade-checks" id="upgradeChecks">
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="22000" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Custom Staircase</span>
+                                <span class="upgrade-check-price">+ $22,000</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="13000" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">All Interior Railing Glass</span>
+                                <span class="upgrade-check-price">+ $13,000</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="14750" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Outdoor Kitchen</span>
+                                <span class="upgrade-check-price">+ $14,750</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="142000" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Swimming Pool</span>
+                                <span class="upgrade-check-price">+ $142,000</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="11500" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Smart Home Package</span>
+                                <span class="upgrade-check-price">+ $11,500</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="3000" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Security Camera Pre-Wire</span>
+                                <span class="upgrade-check-price">+ $3,000</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="7500" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Herringbone Hardwood Floors</span>
+                                <span class="upgrade-check-price">+ $7,500</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="42500" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Painted Brick Exterior Package</span>
+                                <span class="upgrade-check-price">+ $42,500</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="24000" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Upgraded Cabinets — Whole House</span>
+                                <span class="upgrade-check-price">+ $24,000</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="1750" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Garage Epoxy Floor Finish</span>
+                                <span class="upgrade-check-price">+ $1,750</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="4500" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Hot Water Recirculation System</span>
+                                <span class="upgrade-check-price">+ $4,500</span>
+                            </div>
+                        </label>
+                        <label class="upgrade-check" onclick="this.classList.toggle('checked')">
+                            <input type="checkbox" value="6500" onchange="updateCalc()">
+                            <div class="upgrade-check-label">
+                                <span class="upgrade-check-name">Sprinkler System — 3 Zones</span>
+                                <span class="upgrade-check-price">+ $6,500</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 3: Land -->
+                <div class="calc-step">
+                    <span class="calc-step-label">Step 03</span>
+                    <h3>Enter Your Land Cost</h3>
+                    <div class="land-input-wrap">
+                        <span class="land-prefix">$</span>
+                        <input type="text" class="land-input" id="landInput" placeholder="0" oninput="updateCalc()" inputmode="numeric">
+                    </div>
+                    <div class="land-notes">
+                        <div class="land-note"><strong>Demo &amp; land development — $40,000 allowance included.</strong> Every plan includes a $40,000 allowance toward demolition of an existing structure and site/land development work (grading, retaining walls, etc.). This typically covers it — but if your lot requires work beyond that scope, the difference would be charged accordingly.</div>
+                        <div class="land-note"><strong>All plans are slab foundation.</strong> This is our standard build and is reflected in the pricing.</div>
+                        <div class="land-note"><strong>Interested in a basement?</strong> Basement additions require custom engineering and pricing. <a href="contact.html" style="color:var(--bronze); text-decoration:none;">Contact us directly</a> for a conversation.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Summary Panel -->
+            <div class="calc-summary" id="calcSummary">
+                <span class="calc-summary-sub">Your Estimate</span>
+                <h3 id="summaryPlanName">The Timberland</h3>
+
+                <div style="margin: 1.5rem 0 0.5rem;">
+                    <div class="summary-line">
+                        <span class="summary-line-label">Land Cost</span>
+                        <span class="summary-line-value" id="summLand">—</span>
+                    </div>
+                    <div class="summary-line">
+                        <span class="summary-line-label">Base Build<br><small style="color:rgba(255,255,255,0.25);">3,200 sf × $280/sf</small></span>
+                        <span class="summary-line-value" id="summBuild">$896,000</span>
+                    </div>
+                    <div class="summary-line">
+                        <span class="summary-line-label">Selected Upgrades</span>
+                        <span class="summary-line-value" id="summUpgrades">$0</span>
+                    </div>
+                </div>
+
+                <div style="margin: 1rem 0;">
+                    <div class="summary-included">
+                        <div class="summary-included-dot"></div>
+                        Demolition included
+                    </div>
+                    <div class="summary-included">
+                        <div class="summary-included-dot"></div>
+                        Slab foundation standard
+                    </div>
+                    <div class="summary-included">
+                        <div class="summary-included-dot"></div>
+                        2-10 Builder Warranty
+                    </div>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-total">
+                    <span class="summary-total-label">Total Estimate</span>
+                    <span class="summary-total-value" id="summTotal">$896,000</span>
+                </div>
+
+                <a href="contact.html" class="summary-cta">Discuss This Plan →</a>
+
+                <p class="summary-disclaimer">
+                    All figures are estimates based on $280/sq. ft. and approximate upgrade pricing. Final costs are determined during the project scoping process. Prices do not include lot-specific engineering, permits, or utility connections.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="interior-cta">
+        <h2>READY TO BUILD?</h2>
+        <p>Bring us your lot or ask us about ours. We'll walk you through the plan, the process, and the numbers.</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-primary-custom">Start a Conversation</a>
+            <a href="services.html" class="btn btn-primary-custom">How We Build</a>
+        </div>
+    </section>
+
+    <!-- Social Strip -->
+    <div class="social-strip">
+        <span class="social-strip-label">Follow Along</span>
+        <div class="social-strip-icons">
+            <a href="https://www.instagram.com/trioluxuryhomes/" target="_blank" rel="noopener" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://www.facebook.com/trioluxuryhomes" target="_blank" rel="noopener" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.youtube.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="YouTube"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://www.tiktok.com/@trioluxuryhomes" target="_blank" rel="noopener" aria-label="TikTok"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        </div>
+        <span class="social-strip-label">@trioluxuryhomes</span>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Trio Luxury Homes. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        var selectedPlan = { name: 'The Timberland', sqft: 3200, price: 896000 };
+
+        function selectPlan(btn) {
+            document.querySelectorAll('.plan-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedPlan = {
+                name: btn.dataset.name,
+                sqft: parseInt(btn.dataset.sqft),
+                price: parseInt(btn.dataset.price)
+            };
+            updateCalc();
+        }
+
+        function parseLand() {
+            var raw = document.getElementById('landInput').value.replace(/[^0-9]/g, '');
+            return raw ? parseInt(raw) : 0;
+        }
+
+        function fmt(n) {
+            return '$' + n.toLocaleString('en-US');
+        }
+
+        function updateCalc() {
+            var land = parseLand();
+            var build = selectedPlan.price;
+            var upgrades = 0;
+            document.querySelectorAll('#upgradeChecks input[type=checkbox]:checked').forEach(cb => {
+                upgrades += parseInt(cb.value);
+            });
+            var total = land + build + upgrades;
+
+            document.getElementById('summaryPlanName').textContent = selectedPlan.name;
+            document.getElementById('summLand').textContent = land > 0 ? fmt(land) : '—';
+            document.getElementById('summBuild').textContent = fmt(build);
+            document.getElementById('summBuild').previousElementSibling.querySelector('small').textContent =
+                selectedPlan.sqft.toLocaleString() + ' sf × $280/sf';
+            document.getElementById('summUpgrades').textContent = upgrades > 0 ? fmt(upgrades) : '$0';
+            document.getElementById('summTotal').textContent = fmt(total);
+        }
+
+        // Format land input with commas on blur
+        document.getElementById('landInput').addEventListener('blur', function() {
+            var raw = this.value.replace(/[^0-9]/g, '');
+            if (raw) this.value = parseInt(raw).toLocaleString('en-US');
+        });
+        document.getElementById('landInput').addEventListener('focus', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+    <script>
+    document.querySelectorAll('.included-acc-trigger').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = btn.closest('.included-acc-item');
+            item.classList.toggle('open');
+            btn.setAttribute('aria-expanded', item.classList.contains('open').toString());
+        });
+    });
+    </script>
+</body>
+</html>

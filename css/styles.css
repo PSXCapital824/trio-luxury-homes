@@ -1,0 +1,2558 @@
+/* ========================================
+   TRIO LUXURY HOMES - CUSTOM STYLESHEET
+   ======================================== */
+
+/* CSS Variables */
+:root {
+    --charcoal: #1A1A1A;
+    --white: #FFFFFF;
+    --warm-gray: #F5F5F5;
+    --bronze: #B8956A;
+    --slate: #4A4A4A;
+    --light-gray: #E8E8E8;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--slate);
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--charcoal);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: var(--charcoal);
+    margin-bottom: 3rem;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+#mainNav {
+    background: transparent;
+    padding: 1.5rem 0;
+    transition: all 0.3s ease;
+}
+
+#mainNav.navbar-shrink {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+#mainNav .navbar-nav {
+    gap: 2.5rem;
+}
+
+#mainNav .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+#mainNav .nav-link:hover,
+#mainNav .nav-link.active {
+    color: var(--bronze);
+}
+
+#mainNav.navbar-shrink .nav-link {
+    color: var(--charcoal);
+}
+
+#mainNav.navbar-shrink .nav-link:hover,
+#mainNav.navbar-shrink .nav-link.active {
+    color: var(--bronze);
+}
+
+#mainNav .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+#mainNav.navbar-shrink .navbar-toggler {
+    border-color: var(--charcoal);
+}
+
+#mainNav .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+#mainNav.navbar-shrink .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2826, 26, 26, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0) 100%),
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--white);
+    z-index: 1;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 2rem;
+    color: #ffffff !important;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    text-shadow:
+        0 0 30px rgba(0,0,0,1),
+        0 0 60px rgba(0,0,0,1),
+        2px 2px 0px rgba(0,0,0,0.9),
+        -2px -2px 0px rgba(0,0,0,0.9),
+        2px -2px 0px rgba(0,0,0,0.9),
+        -2px 2px 0px rgba(0,0,0,0.9),
+        0 4px 20px rgba(0,0,0,1);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 2;
+    margin-bottom: 3rem;
+    text-shadow:
+        0 1px 8px rgba(0,0,0,0.6),
+        0 3px 24px rgba(0,0,0,0.35);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-primary-custom {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid var(--bronze);
+    color: var(--bronze);
+    padding: 14px 32px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    background: var(--bronze);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   INTRODUCTION SECTION
+   ======================================== */
+
+.intro-section {
+    padding: 120px 4rem;
+    background: var(--white);
+}
+
+.intro-text {
+    font-size: 1.125rem;
+    line-height: 1.9;
+    color: var(--slate);
+    margin-bottom: 1.5rem;
+}
+
+/* ========================================
+   PROJECTS SECTION
+   ======================================== */
+
+.projects-section {
+    padding: 100px 4rem;
+    background: var(--warm-gray);
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    height: 100%;
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: var(--white);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.project-card:hover .project-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.project-overlay h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.project-overlay .location {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    opacity: 0.9;
+}
+
+.project-overlay .details {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.project-overlay .description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.project-overlay .btn-link {
+    color: var(--bronze);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.project-overlay .btn-link:hover {
+    color: var(--white);
+}
+
+/* ========================================
+   APPROACH SECTION
+   ======================================== */
+
+.approach-section {
+    padding: 120px 4rem;
+    background: var(--white);
+}
+
+.approach-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+}
+
+.approach-item p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--slate);
+}
+
+.divider {
+    width: 60px;
+    height: 2px;
+    background: var(--bronze);
+    margin-bottom: 1.5rem;
+}
+
+/* ========================================
+   CONTACT FORM SECTION
+   ======================================== */
+
+.contact-section {
+    padding: 100px 4rem;
+    background: var(--charcoal);
+}
+
+.contact-section .section-title {
+    color: var(--white);
+}
+
+.contact-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-intro p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.contact-intro .phone-number {
+    font-size: 1.5rem;
+    color: var(--bronze);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.contact-intro .phone-number:hover {
+    color: var(--white);
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-form .form-control {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    padding: 0.875rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form .form-control:focus {
+    border-color: var(--bronze);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 0.2rem rgba(184, 149, 106, 0.25);
+    color: var(--white);
+}
+
+.contact-form textarea.form-control {
+    min-height: 150px;
+}
+
+.contact-form label {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-submit-btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+
+.cta-section {
+    padding: 100px 4rem;
+    background: var(--charcoal);
+    text-align: center;
+}
+
+.cta-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.cta-text {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer-section {
+    padding: 3rem 4rem;
+    background: var(--charcoal);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   INTERIOR PAGES — DARK PREMIUM
+   ======================================== */
+
+.page-hero {
+    position: relative;
+    height: 75vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.65)),
+                url('../images/portfolio/home1.jpg') center/cover;
+}
+
+.page-hero-content {
+    padding: 0 5rem 4.5rem;
+    text-align: left;
+    max-width: 800px;
+}
+
+.page-hero-content h1 {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 300;
+    letter-spacing: 5px;
+    color: var(--white);
+    margin: 0;
+    line-height: 1;
+}
+
+.page-hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--bronze);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Dark interior sections */
+.dark-section {
+    padding: 100px 5rem;
+    background: var(--charcoal);
+}
+
+.darker-section {
+    padding: 100px 5rem;
+    background: #111;
+}
+
+/* Numbered list for services etc */
+.numbered-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.numbered-item {
+    padding: 2.5rem 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-right: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.3s ease;
+}
+
+.numbered-item:nth-child(even) {
+    border-right: none;
+}
+
+.numbered-item:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+.numbered-item:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+.numbered-item .num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.numbered-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+}
+
+.numbered-item p {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+}
+
+/* Process steps dark version */
+.process-dark {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    margin-top: 3rem;
+}
+
+.process-dark-step {
+    background: var(--charcoal);
+    padding: 2.5rem 1.75rem;
+    text-align: center;
+}
+
+.process-dark-step .num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--bronze);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.process-dark-step h4 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.process-dark-step p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Dark gallery (plans / listings) */
+.dark-gallery-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.dark-gallery-header h2 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Interior page CTA dark */
+.interior-cta {
+    padding: 80px 5rem;
+    background: #0d0d0d;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.interior-cta h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.interior-cta p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Dark filter buttons */
+.filter-buttons-dark {
+    display: flex;
+    gap: 0;
+    margin-bottom: 3px;
+}
+
+.filter-btn-dark {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.4);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn-dark:hover,
+.filter-btn-dark.active {
+    color: var(--bronze);
+    border-bottom-color: var(--bronze);
+}
+
+/* About page values dark */
+.values-dark {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+}
+
+.value-dark {
+    background: var(--charcoal);
+    padding: 3rem;
+    transition: background 0.3s ease;
+}
+
+.value-dark:hover {
+    background: #222;
+}
+
+.value-dark .vd-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--bronze);
+    opacity: 0.5;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.value-dark h4 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+}
+
+.value-dark p {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+}
+
+/* Interior dark footer strip */
+.dark-footer-strip {
+    background: #0d0d0d;
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark-footer-strip p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.dark-footer-strip .social-icons-strip {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.dark-footer-strip .social-icons-strip a {
+    color: rgba(255,255,255,0.3);
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.dark-footer-strip .social-icons-strip a:hover {
+    color: var(--bronze);
+}
+
+.dark-footer-strip .social-icons-strip svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Responsive for dark interior sections */
+@media (max-width: 991px) {
+    .page-hero {
+        height: 60vh;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page-hero-content {
+        padding: 0 2rem;
+        text-align: center;
+    }
+
+    .page-hero-content h1 {
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+
+    .dark-section,
+    .darker-section,
+    .interior-cta {
+        padding: 60px 2rem;
+    }
+
+    .numbered-list {
+        grid-template-columns: 1fr;
+    }
+
+    .numbered-item {
+        border-right: none;
+    }
+
+    .process-dark {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .values-dark {
+        grid-template-columns: 1fr;
+    }
+
+    .dark-footer-strip {
+        padding: 1.5rem 2rem;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-hero-content h1 {
+        font-size: 2.25rem;
+        letter-spacing: 2px;
+    }
+
+    .process-dark {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   ABOUT PAGE (legacy)
+   ======================================== */
+
+.content-section {
+    padding: 100px 4rem;
+}
+
+.content-section-alt {
+    padding: 100px 4rem;
+    background: var(--warm-gray);
+}
+
+.lead {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--slate);
+}
+
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.value-item h4 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   PORTFOLIO PAGE
+   ======================================== */
+
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--light-gray);
+    color: var(--slate);
+    padding: 0.5rem 1.5rem;
+    margin: 0 0.5rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--bronze);
+    border-color: var(--bronze);
+    color: var(--white);
+}
+
+.portfolio-item {
+    display: block;
+}
+
+/* ========================================
+   PROCESS PAGE
+   ======================================== */
+
+.process-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.process-step {
+    position: relative;
+    padding-left: 4rem;
+    margin-bottom: 4rem;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: -4rem;
+    width: 2px;
+    background: var(--light-gray);
+}
+
+.process-step:last-child::before {
+    display: none;
+}
+
+.step-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--bronze);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.process-step h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   INVEST PAGE STYLES
+   ======================================== */
+
+.investment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.investment-card {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    border: 2px solid var(--light-gray);
+    transition: all 0.3s ease;
+}
+
+.investment-card:hover {
+    border-color: var(--bronze);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.investment-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.risk-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+}
+
+.risk-moderate {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ff9800;
+}
+
+.risk-conservative {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+}
+
+.investment-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.investment-card li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--slate);
+}
+
+.investment-card li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--bronze);
+    font-weight: bold;
+}
+
+/* Why Invest Section */
+.why-invest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.why-item {
+    text-align: center;
+}
+
+.why-item h4 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+/* Stats Section */
+.stats-section {
+    padding: 80px 4rem;
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--bronze);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* ========================================
+   SOCIAL MEDIA LINKS
+   ======================================== */
+
+/* Floating Social Links */
+.social-links {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(26, 26, 26, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: var(--bronze);
+    background: rgba(26, 26, 26, 0.8);
+    transform: scale(1.1);
+}
+
+.social-links a svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* When navbar shrinks, adjust social links color */
+body.scrolled .social-links a {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--charcoal);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.scrolled .social-links a:hover {
+    color: var(--bronze);
+}
+
+/* Footer Social Links */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: var(--bronze);
+}
+
+.footer-social svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ========================================
+   HOMEPAGE — SPLIT PATH SELECTOR
+   ======================================== */
+
+.split-paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    position: relative;
+}
+
+.split-path {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 5rem 4rem;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.split-path::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    transition: background 0.4s ease;
+    z-index: 1;
+}
+
+.split-path:hover::before {
+    background: rgba(0,0,0,0.25);
+}
+
+.split-path-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.split-path:hover .split-path-bg {
+    transform: scale(1.04);
+}
+
+.split-path-content {
+    position: relative;
+    z-index: 2;
+}
+
+.split-path-label {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.split-path-title {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.split-path-sub {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    max-width: 340px;
+    margin-bottom: 2rem;
+}
+
+.split-path-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding-bottom: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.split-path:hover .split-path-arrow {
+    color: var(--bronze);
+    border-bottom-color: var(--bronze);
+    gap: 1.25rem;
+}
+
+.split-divider {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+    z-index: 3;
+    transform: translateX(-50%);
+}
+
+/* ========================================
+   HOMEPAGE — AVAILABLE HOMES GALLERY
+   ======================================== */
+
+.homes-gallery-section {
+    padding: 0;
+    background: var(--charcoal);
+}
+
+.homes-gallery-header {
+    padding: 80px 80px 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.homes-gallery-header h2 {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--white);
+    margin: 0;
+}
+
+.homes-gallery-header a {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bronze);
+    text-decoration: none;
+    border-bottom: 1px solid var(--bronze);
+    padding-bottom: 2px;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+}
+
+.homes-gallery-header a:hover {
+    opacity: 0.7;
+}
+
+.homes-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    padding: 0 2px 2px;
+}
+
+.home-gallery-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    height: 480px;
+}
+
+.home-gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+}
+
+.home-gallery-card:hover img {
+    transform: scale(1.06);
+}
+
+.home-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.5rem 2.5rem;
+    transition: all 0.4s ease;
+}
+
+.home-gallery-card:hover .home-gallery-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+}
+
+.home-gallery-address {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+}
+
+.home-gallery-meta {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.5px;
+    margin-bottom: 1.25rem;
+}
+
+.home-gallery-cta {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bronze);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.4s ease;
+}
+
+.home-gallery-card:hover .home-gallery-cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   HOMEPAGE — FEATURED PROPERTY
+   ======================================== */
+
+.featured-property-section {
+    position: relative;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.featured-property-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.1s ease;
+}
+
+.featured-property-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+}
+
+.featured-property-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 5rem;
+    max-width: 700px;
+}
+
+.featured-property-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.featured-property-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--bronze);
+}
+
+.featured-property-content h2 {
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+}
+
+.featured-property-details {
+    display: flex;
+    gap: 2.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.featured-detail {
+    border-left: 1px solid var(--bronze);
+    padding-left: 1rem;
+}
+
+.featured-detail-label {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.25rem;
+}
+
+.featured-detail-value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--white);
+}
+
+/* ========================================
+   HOMEPAGE — BUILD WITH US
+   ======================================== */
+
+.build-with-us-section {
+    padding: 120px 5rem;
+    background: var(--white);
+    position: relative;
+}
+
+.build-with-us-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5rem;
+    right: 5rem;
+    height: 1px;
+    background: var(--light-gray);
+}
+
+.build-options {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0;
+    margin-top: 4rem;
+}
+
+.build-option-divider {
+    background: var(--light-gray);
+    align-self: stretch;
+}
+
+.build-option {
+    padding: 0 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.build-option:first-child {
+    padding-left: 0;
+}
+
+.build-option:last-child {
+    padding-right: 0;
+}
+
+.build-option-num {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 300;
+    color: var(--light-gray);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.build-option h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--charcoal);
+    margin-bottom: 1.25rem;
+}
+
+.build-option p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--slate);
+    max-width: 320px;
+    margin-bottom: 2rem;
+}
+
+/* ========================================
+   HOMEPAGE — SOCIAL STRIP
+   ======================================== */
+
+.social-strip {
+    background: var(--charcoal);
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.social-strip-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+}
+
+.social-strip-icons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.social-strip-icons a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-strip-icons a:hover {
+    color: var(--bronze);
+}
+
+.social-strip-icons svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ========================================
+   PATHWAY CARDS (Homepage)
+   ======================================== */
+
+.pathway-section {
+    padding: 100px 4rem;
+    background: var(--white);
+}
+
+.pathway-card {
+    border: 1px solid var(--light-gray);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pathway-card:hover {
+    border-color: var(--bronze);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+}
+
+.pathway-card .pathway-icon {
+    width: 50px;
+    height: 2px;
+    background: var(--bronze);
+    margin: 0 auto 2rem;
+}
+
+.pathway-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+}
+
+.pathway-card p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--slate);
+    margin-bottom: 2rem;
+}
+
+/* ========================================
+   FEATURED PLAN SECTION (Homepage)
+   ======================================== */
+
+.featured-plan-section {
+    padding: 120px 4rem;
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.featured-plan-section .section-title {
+    color: var(--white);
+}
+
+.plan-spec-row {
+    display: flex;
+    gap: 3rem;
+    margin: 2.5rem 0;
+    flex-wrap: wrap;
+}
+
+.plan-spec {
+    text-align: left;
+}
+
+.plan-spec .spec-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--bronze);
+    margin-bottom: 0.25rem;
+}
+
+.plan-spec .spec-value {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--white);
+}
+
+.plan-image-placeholder {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   WHERE WE BUILD PREVIEW (Homepage)
+   ======================================== */
+
+.where-preview-section {
+    padding: 100px 4rem;
+    background: var(--warm-gray);
+}
+
+.community-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 2rem 0;
+}
+
+.community-tag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--bronze);
+    color: var(--charcoal);
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.community-tag.primary {
+    background: var(--bronze);
+    color: var(--white);
+}
+
+/* ========================================
+   MINI PROCESS SECTION (Homepage & Services)
+   ======================================== */
+
+.process-mini-section {
+    padding: 100px 4rem;
+    background: var(--white);
+}
+
+.process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.process-steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: var(--light-gray);
+}
+
+.process-step-mini {
+    text-align: center;
+    position: relative;
+}
+
+.step-circle {
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid var(--bronze);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--bronze);
+    margin: 0 auto 1.25rem;
+    background: var(--white);
+    position: relative;
+    z-index: 1;
+}
+
+.process-step-mini h4 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+}
+
+.process-step-mini p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--slate);
+}
+
+/* ========================================
+   OUR SERVICES PAGE
+   ======================================== */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.service-item {
+    padding: 2.5rem;
+    border: 1px solid var(--light-gray);
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    border-color: var(--bronze);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+}
+
+.service-item .service-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--light-gray);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.service-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.service-item p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--slate);
+}
+
+/* Process timeline on services page */
+.process-timeline-section {
+    padding: 100px 4rem;
+    background: var(--charcoal);
+}
+
+.process-timeline-section .section-title {
+    color: var(--white);
+}
+
+.timeline-steps {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.timeline-step {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+.timeline-step:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-num {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--bronze);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--bronze);
+    flex-shrink: 0;
+}
+
+.timeline-content h4 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+}
+
+/* ========================================
+   WHERE WE BUILD PAGE
+   ======================================== */
+
+.map-section {
+    padding: 80px 4rem;
+    background: var(--white);
+}
+
+.map-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.map-legend {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--slate);
+}
+
+.legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.legend-dot.primary {
+    background: var(--bronze);
+}
+
+.legend-dot.extended {
+    background: rgba(184,149,106,0.35);
+    border: 1px solid var(--bronze);
+}
+
+.markets-section {
+    padding: 80px 4rem;
+    background: var(--warm-gray);
+}
+
+.market-group {
+    margin-bottom: 3rem;
+}
+
+.market-group-title {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1.25rem;
+}
+
+.market-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.market-pill {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+}
+
+.market-pill.primary {
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.market-pill.extended {
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+    background: transparent;
+}
+
+.range-note {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--slate);
+    border-left: 2px solid var(--bronze);
+    padding-left: 1.25rem;
+    margin-top: 2rem;
+    line-height: 1.7;
+}
+
+/* ========================================
+   OUR PLANS PAGE
+   ======================================== */
+
+.plans-intro-section {
+    padding: 80px 4rem;
+    background: var(--white);
+}
+
+.plans-grid {
+    padding: 60px 4rem 100px;
+    background: var(--warm-gray);
+}
+
+.plan-card {
+    background: var(--white);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.plan-card:hover {
+    box-shadow: 0 12px 50px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+}
+
+.plan-card-image {
+    height: 320px;
+    background: var(--charcoal);
+    overflow: hidden;
+    position: relative;
+}
+
+.plan-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.plan-card:hover .plan-card-image img {
+    transform: scale(1.04);
+}
+
+.plan-card-image-placeholder {
+    height: 320px;
+    background: linear-gradient(135deg, #1A1A1A 0%, #2d2d2d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.2);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.plan-card-placeholder {
+    background: var(--white);
+    border: 1px dashed var(--light-gray);
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--light-gray);
+}
+
+.plan-card-placeholder .coming-soon-text {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(74,74,74,0.3);
+}
+
+.plan-card-body {
+    padding: 2rem 2.5rem 2.5rem;
+}
+
+.plan-card-body .plan-name {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+}
+
+.plan-specs {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1rem 0 1.25rem;
+    flex-wrap: wrap;
+}
+
+.plan-spec-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--bronze);
+}
+
+.plan-card-body .plan-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--slate);
+    margin-bottom: 1.75rem;
+}
+
+.plan-card-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-outline-custom {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+    padding: 10px 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+/* ========================================
+   TIMBERLAND PLAN DETAIL PAGE
+   ======================================== */
+
+.plan-hero {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%),
+                url('../images/portfolio/home1.jpg') center/cover;
+}
+
+.plan-hero-content {
+    padding: 4rem;
+    color: var(--white);
+}
+
+.plan-hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 0.75rem;
+}
+
+.plan-hero-title {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--white);
+    margin-bottom: 0;
+}
+
+.plan-detail-specs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--charcoal);
+    padding: 2.5rem 4rem;
+}
+
+.detail-spec {
+    text-align: center;
+    padding: 1rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.detail-spec:last-child {
+    border-right: none;
+}
+
+.detail-spec .spec-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--bronze);
+    margin-bottom: 0.5rem;
+}
+
+.detail-spec .spec-value {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.plan-features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.plan-features-list li {
+    padding: 0.6rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.6;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.plan-features-list li:last-child {
+    border-bottom: none;
+}
+
+.plan-features-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--bronze);
+}
+
+.customization-section {
+    padding: 80px 4rem;
+    background: var(--warm-gray);
+}
+
+/* ========================================
+   CURRENT LISTINGS PAGE
+   ======================================== */
+
+.listing-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    z-index: 2;
+    color: var(--white);
+}
+
+.badge-available {
+    background: #3a7d44;
+}
+
+.badge-contract {
+    background: #c47c1a;
+}
+
+.badge-sold {
+    background: rgba(26, 26, 26, 0.85);
+}
+
+.listing-type-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    z-index: 2;
+    background: rgba(184, 149, 106, 0.9);
+    color: var(--white);
+}
+
+/* ========================================
+   CONTACT PAGE
+   ======================================== */
+
+.contact-page-hero {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.65)),
+                url('../images/portfolio/home2.jpg') center/cover;
+}
+
+.contact-full-section {
+    padding: 100px 4rem;
+    background: var(--charcoal);
+}
+
+.contact-full-section .section-title {
+    color: var(--white);
+}
+
+.contact-info-block {
+    margin-bottom: 3rem;
+}
+
+.contact-info-block p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.contact-detail {
+    margin-top: 2rem;
+}
+
+.contact-detail .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--bronze);
+    margin-bottom: 0.25rem;
+}
+
+.contact-detail a,
+.contact-detail span {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.contact-detail a:hover {
+    color: var(--bronze);
+}
+
+/* Agent Portal Content Sections */
+.content-section-portal {
+    display: none;
+    padding: 80px 4rem;
+    background: #FFFFFF;
+}
+
+.content-section-portal.active {
+    display: block;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1199px) {
+    .process-steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .process-steps-grid::before {
+        display: none;
+    }
+
+    .plan-detail-specs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .split-path-title {
+        font-size: 2.75rem;
+    }
+
+    .featured-property-content h2 {
+        font-size: 3.5rem;
+    }
+
+    .homes-gallery-header {
+        padding: 60px 40px 40px;
+    }
+
+    .build-with-us-section {
+        padding: 80px 3rem;
+    }
+
+    .build-with-us-section::before {
+        left: 3rem;
+        right: 3rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .split-paths {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .split-path {
+        height: 60vh;
+        padding: 3rem 2rem;
+    }
+
+    .split-path-title {
+        font-size: 2.25rem;
+    }
+
+    .split-divider {
+        display: none;
+    }
+
+    .homes-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-gallery-card {
+        height: 320px;
+    }
+
+    .homes-gallery-header {
+        padding: 50px 2rem 30px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .homes-gallery-header h2 {
+        font-size: 2rem;
+    }
+
+    .featured-property-section {
+        height: auto;
+        min-height: 80vh;
+    }
+
+    .featured-property-content {
+        padding: 8rem 2rem 4rem;
+    }
+
+    .featured-property-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .featured-property-overlay {
+        background: rgba(0,0,0,0.6);
+    }
+
+    .build-with-us-section {
+        padding: 60px 2rem;
+    }
+
+    .build-with-us-section::before {
+        left: 2rem;
+        right: 2rem;
+    }
+
+    .build-options {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .build-option-divider {
+        display: none;
+    }
+
+    .build-option {
+        padding: 0;
+    }
+
+    .social-strip {
+        padding: 1.5rem 2rem;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .intro-section,
+    .projects-section,
+    .approach-section,
+    .cta-section,
+    .contact-section,
+    .content-section,
+    .content-section-alt,
+    .pathway-section,
+    .featured-plan-section,
+    .where-preview-section,
+    .process-mini-section,
+    .process-timeline-section,
+    .map-section,
+    .markets-section,
+    .plans-intro-section,
+    .plans-grid,
+    .customization-section,
+    .contact-full-section {
+        padding: 60px 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-detail-specs {
+        padding: 2rem;
+    }
+
+    .plan-hero-content {
+        padding: 2rem;
+    }
+
+    .plan-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .plan-spec-row {
+        gap: 1.5rem;
+    }
+    
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .social-links {
+        right: 1rem;
+        gap: 1rem;
+    }
+    
+    .social-links a {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .social-links a svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .project-image {
+        height: 300px;
+    }
+    
+    #mainNav .navbar-nav {
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .contact-intro .phone-number {
+        font-size: 1.25rem;
+    }
+
+    .page-hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .social-links {
+        display: none; /* Hide floating social on mobile */
+    }
+    
+    .footer-social {
+        gap: 1.5rem;
+    }
+    
+    .filter-btn {
+        margin: 0.25rem;
+    }
+    
+    .investment-grid,
+    .why-invest-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .plan-detail-specs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .plan-card-actions {
+        flex-direction: column;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .stats-section {
+        padding: 60px 2rem;
+    }
+}
