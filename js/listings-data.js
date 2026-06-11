@@ -92,17 +92,22 @@ function renderListings(containerId, mode) {
     var extraClass = mode === "portfolio" ? " portfolio-item" : "";
     var dataAttr   = mode === "portfolio" ? ' data-category="' + category + '"' : "";
 
+    var wrapStart = l.url
+      ? '<a href="' + l.url + '" class="home-gallery-card' + extraClass + '"' + dataAttr + '>'
+      : '<div class="home-gallery-card' + extraClass + '"' + dataAttr + '>';
+    var wrapEnd = l.url ? '</a>' : '</div>';
+
     return [
-      '<div class="home-gallery-card' + extraClass + '"' + dataAttr + '>',
+      wrapStart,
       '  <img src="' + l.image + '" alt="' + l.address + '">',
       '  <span class="listing-badge ' + badge.cls + '">' + badge.label + '</span>',
       tagHTML,
       '  <div class="home-gallery-overlay">',
       '    <div class="home-gallery-address">' + l.address + '</div>',
       '    <div class="home-gallery-meta">' + l.meta + '</div>',
-      l.url ? '    <a href="' + l.url + '" class="home-gallery-cta">' + l.cta + '</a>' : '    <span class="home-gallery-cta" style="opacity:0.4; cursor:default; pointer-events:none;">' + l.cta + '</span>',
+      l.url ? '    <span class="home-gallery-cta">' + l.cta + '</span>' : '    <span class="home-gallery-cta" style="opacity:0.4; cursor:default; pointer-events:none;">' + l.cta + '</span>',
       '  </div>',
-      '</div>'
+      wrapEnd
     ].join("\n");
   }).join("\n");
 }
