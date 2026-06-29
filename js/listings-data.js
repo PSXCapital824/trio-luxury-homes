@@ -31,11 +31,11 @@ const TRIO_LISTINGS = [
   },
   {
     address:  "14756 Hopewell Road",
-    meta:     "Alpharetta &nbsp;·&nbsp; 1.5 Acres &nbsp;·&nbsp; Summer 2027",
+    meta:     "Milton &nbsp;·&nbsp; 1.51 Acres &nbsp;·&nbsp; Fall 2027",
     status:   "available",
-    image:    "images/portfolio/coming-soon.jpg",
-    url:      null,
-    cta:      "Coming Soon",
+    image:    "images/14756/MainFront.png",
+    url:      "listing-14756-hopewell.html",
+    cta:      "View Listing →",
     tag:      null
   },
   {
