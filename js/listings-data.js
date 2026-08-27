@@ -37,33 +37,6 @@ const TRIO_LISTINGS = [
     url:      "listing-14756-hopewell.html",
     cta:      "View Listing →",
     tag:      null
-  },
-  {
-    address:  "Milton Estate",
-    meta:     "Milton &nbsp;·&nbsp; 3.5 Acres &nbsp;·&nbsp; Completed 2024",
-    status:   "sold",
-    image:    "images/portfolio/home4.jpg",
-    url:      "contact.html",
-    cta:      "Learn More →",
-    tag:      "Custom Build"
-  },
-  {
-    address:  "Buckhead Residence",
-    meta:     "Atlanta &nbsp;·&nbsp; 1.2 Acres &nbsp;·&nbsp; Completed 2023",
-    status:   "sold",
-    image:    "images/portfolio/home5.jpg",
-    url:      "contact.html",
-    cta:      "Learn More →",
-    tag:      null
-  },
-  {
-    address:  "Sandy Springs Estate",
-    meta:     "Sandy Springs &nbsp;·&nbsp; 2.8 Acres &nbsp;·&nbsp; Completed 2023",
-    status:   "sold",
-    image:    "images/portfolio/home6.jpg",
-    url:      "contact.html",
-    cta:      "Learn More →",
-    tag:      "Custom Build"
   }
 ];
 
